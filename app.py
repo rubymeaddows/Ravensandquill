@@ -17,16 +17,17 @@ app.permanent_session_lifetime = timedelta(hours=2)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'rubymeaddows@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ymap ctea jrdy tqsm'  # App Password from Google
-app.config['MAIL_DEFAULT_SENDER'] = ('Ravens & Quill', 'rubymeaddows@gmail.com')
+app.config['MAIL_USERNAME'] = os.environ['MAIL_USERNAME']
+app.config['MAIL_PASSWORD'] = os.environ['MAIL_PASSWORD']
+app.config['MAIL_DEFAULT_SENDER'] = ('Ravens & Quill', os.environ['MAIL_USERNAME'])
 
-# Initialize Flask-Mail
-mail = Mail(app)
+# ─── Firebase Admin Configuration ───
+cred_dict = json.loads(os.environ['FIREBASE_CREDENTIALS'])
+cred = credentials.Certificate(cred_dict)
 
-# Initialize Firebase Admin
-cred = credentials.Certificate("raven-and-quill-firebase-adminsdk-fbsvc-93f007043b.json")
-firebase_admin.initialize_app(cred)
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred)
+
 db = firestore.client()
 
 # Token generator setup
@@ -494,3 +495,4 @@ def edit_profile():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
+
