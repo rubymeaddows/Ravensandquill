@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Profile" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+     {% if session.email %}
+    <a href="/profile">Profile</a>
+  {% else %}
+    <a href="/login">Login</a>
+  {% endif %}
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+
+<main class="welcome">
+  <div class="cathedral-banner">
+    <div class="arch-container">
+      <img src="{{ url_for('static', filename='gothic_arch.png') }}" alt="Gothic Arch" class="banner-img">
+      <div class="welcome-portrait">
+        <h1 class="cathedral-title">Welcome, Reader</h1>
+        <p class="cathedral-subtitle"><em>Ex Libris Umbrae</em> — From the Books of Shadows</p>
+        <p>This is a place for readers who find pieces of themselves in stories. It is quiet, dreamy, and made for those who feel deeply, think in underlines, and wander through the world with a book in hand and a thousand thoughts behind their eyes.</p>
+        <p>You will enter a space where moods shape everything. It is soft and slow, with a touch of chaos, filled with beauty in both silence and shared excitement. You will get to read lines from unforgettable books that feel like secret doorways, and you will feel seen in the way words linger.</p>
+        <p>It is a blend of candlelight and laughter, annotated pages and half-finished tea. A place where aesthetics matter, where thoughts will drift freely, and your current feeling will always lead to something just right. There will be moments of pause.</p>
+        <p>Created by the author of <em>If The Silence Fell</em>, this is more than a site. It is a dream, a contenting haven for all my fellow readers. Have fun! Let’s get started.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
+</footer>
+
+</body>
+</html>

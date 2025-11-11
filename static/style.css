@@ -1,0 +1,2917 @@
+/* Global layout */
+body {
+  background-color: #0a0a0a;
+  color: #cccccc;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  cursor: url("/static/candle-cursor.png") 0 0, auto;
+  line-height: 1.8;
+  background-size: cover;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+/* Fade-in animation */
+main {
+  padding: 80px;
+  margin-left: 240px;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in;
+}
+
+/* Global link styling */
+a {
+  color: #d8c4a0; /* cream tone */
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-family: 'EB Garamond', serif;
+}
+
+/* Hover effect: candlelit glow */
+a:hover {
+  color: #fff8dc;
+  text-shadow: 0 0 6px rgba(255, 244, 220, 0.4);
+}
+
+/* Sidebar links (optional enhancement) */
+.sidebar nav a {
+  display: block;
+  padding: 0.5rem 0;
+  border-left: 2px solid transparent;
+}
+
+.sidebar nav a:hover {
+  border-left: 2px solid #c2b280; /* antique gold */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  background: linear-gradient(to bottom, #1a1816, #0f0f0f);
+  padding: 40px 20px 100px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  border-right: 2px solid #444444;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("statue1.png");
+  background-repeat: no-repeat -20 px;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.25; /* adjust for desired transparency */
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.sidebar h2 {
+  font-size: 1.4em;
+  margin-bottom: 30px;
+  color: #999999;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: transparent;
+}
+
+.sidebar nav {
+  background-color: transparent;
+}
+
+.sidebar nav a {
+  display: block;
+  margin-bottom: 15px;
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 1.05em;
+  padding: 6px 0;
+  border-bottom: 1px dashed #444444;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.sidebar nav a:hover {
+  color: #aaaaaa;
+  text-shadow: 0 0 5px #888888;
+}
+
+/* Book image */
+.sidebar-book {
+  position: absolute;
+  bottom: 150px; /* lifted slightly above bottom */
+  left: 70%;    /* nudged slightly right */
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.book-icon {
+  width: 90px;
+  opacity: 0.90;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Header and Logo */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f0f0f;
+  border-bottom: 2px solid #5a5144;
+  padding: 20px 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  margin-left: 240px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.site-logo {
+  width: 120px;
+  height: auto;
+  margin-right: 15px;
+  filter: drop-shadow(0 0 5px #000);
+}
+
+.site-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-heading {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8rem;
+  color: #e6dccb;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.site-motto {
+  font-style: italic;
+  font-size: 1rem;
+  color: #bfae9c;
+  margin-top: 4px;
+}
+
+/* Profile icon */
+.profile-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.05);
+}
+
+/* Motto */
+.motto {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.motto h2 {
+  font-size: 1.4em;
+  color: #999999;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.quill-icon {
+  width: 36px;
+  height: auto;
+  opacity: 0.8;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+
+/* Welcome box */
+.welcome-box.ornate,
+.book-announcement.ornate,
+.author-card {
+  background: linear-gradient(to bottom right, #1a1816, #0f0f0f);
+  border: 3px double #444444;
+  padding: 60px;
+  margin: 80px auto;
+  max-width: 900px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+  border-radius: 16px;
+}
+
+.welcome-box.ornate h1,
+.book-announcement h1,
+.author-card h1 {
+  font-size: 2.2em;
+  color: #bfbfbf;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #444444;
+  padding-bottom: 10px;
+}
+
+.welcome-box.ornate {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1500px;
+  text-align: center;
+}
+/* Arch and welcome text */
+.cathedral-banner {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+}
+
+.arch-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.welcome-portrait {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0a0a0a; /* pure black */
+  padding: 40px;
+  border: none; /* remove border */
+  box-shadow: 0 0 30px rgba(0,0,0,0.7); /* optional glow */
+  border-radius: 24px;
+  max-width: 600px;
+  text-align: center;
+}
+
+
+/* Welcome text animation */
+.author-card p {
+  margin-bottom: 20px;
+  text-indent: 30px;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in forwards;
+  color: #cccccc;
+}
+
+.welcome-box.ornate p:nth-of-type(1) { animation-delay: 0.5s; }
+.welcome-box.ornate p:nth-of-type(2) { animation-delay: 1s; }
+.welcome-box.ornate p:nth-of-type(3) { animation-delay: 1.5s; }
+.welcome-box.ornate p:nth-of-type(4) { animation-delay: 2s; }
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+/* Quote blocks */
+.quote-block {
+  background-color: #1a1816;
+  border-left: 4px solid #888888;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.quote-text {
+  font-size: 1.2em;
+  font-style: italic;
+  color: #cccccc;
+}
+
+.quote-meta {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #999999;
+}
+
+/* Contact box */
+.contact-box {
+  background-color: rgba(30, 25, 22, 0.7);
+  border-left: 4px solid #5a5144;
+  padding: 20px;
+  margin-top: 30px;
+  font-style: italic;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+  border-radius: 8px;
+}
+
+.email {
+  font-family: 'Courier New', monospace;
+  color: #d6c1a3;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 40px auto;
+  font-style: italic;
+  font-size: 1.2em;
+  color: #999999;
+  text-align: center;
+}
+
+/* SVG Flourish */
+.svg-divider {
+  width: 100%;
+  height: 20px;
+  margin: 40px 0;
+}
+
+.svg-divider path {
+  stroke: #444444;
+  stroke-width: 2;
+}
+
+/* Profile Section */
+
+
+.latin-motto {
+  font-style: italic;
+  color: #999999;
+  margin-top: 10px;
+}
+
+.profile-status,
+.shelf-of-influence,
+.timeline {
+  margin-bottom: 40px;
+  border-left: 4px solid #888888;
+  padding-left: 20px;
+}
+
+.status-text {
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.profile-signature blockquote {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #999999;
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* Decorative Elements */
+.raven-motif,
+.sidebar-icon {
+  width: 40px;
+  opacity: 0.8;
+  margin: 10px 0;
+}
+
+.icon, .lamp, .book, .statue {
+  width: 30px;
+  margin: 5px;
+  filter: grayscale(40%) drop-shadow(0 0 5px #222);
+}
+
+.painting,
+.divider-img,
+.portrait,
+.profile-choice {
+  border: 1px solid #444444;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.inline-art {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid #f5f5dc;
+  object-fit: cover;
+  margin: 20px 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: inline-block;
+}
+
+.author-decor {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.author-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #f5f5dc;
+  background-color: #0a0a0a;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  margin: 0 auto 20px;
+  display: block;
+}
+
+body.author-page {
+  background: url("author-bg.png") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #0f0f0f; /* fallback color */
+  color: #dddddd; /* optional: ensure text is readable */
+}
+
+body.author-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("author-bg.png") no-repeat center center;
+  background-size: cover;
+  opacity: 0.25; /* ← increase this to make it less transparent */
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+
+/* Footer */
+.site-footer {
+  background-color: #1a1412;
+  border-top: 2px solid #5a5144;
+  border-bottom: 2px solid #5a5144;
+  padding: 20px 40px;
+  margin-left: 240px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.footer-icon {
+  width: 80px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.6;
+}
+/* Moodboard resizing */
+.book-image {
+  width: 220px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Pinterest link styling */
+.pinterest-link {
+  color: #d2b48c;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.pinterest-link:hover {
+  color: #8b5e3c;
+  text-shadow: 0 0 5px rgba(139, 94, 60, 0.4);
+}
+
+.book-announcement a {
+  color: #d2b48c; /* tan/cream */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.book-announcement a:hover {
+  color: #8b5e3c; /* rich brown */
+  text-shadow: 0 0 5px rgba(139, 94, 60, 0.4);
+}
+.framed-decorations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 60px auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.frame {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(110%) brightness(90%);
+}
+
+/* Hover effect */
+.frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+/* Unique frame styles */
+.frame.gothic {
+  border: 3px solid #3c3c3c;
+  background: radial-gradient(circle, #1a1816 40%, #0f0f0f 100%);
+}
+
+.frame.candlelit {
+  border: 3px double #8b5e3c;
+  background: radial-gradient(circle, #2a1a10 30%, #0a0604 100%);
+}
+
+.frame.rosewood {
+  border: 2px dashed #6e4b3a;
+  background: radial-gradient(circle, #3b2a26 40%, #1a1412 100%);
+}
+
+.frame.ironkey {
+  border: 2px solid #555;
+  background: radial-gradient(circle, #2c2c2c 40%, #0f0f0f 100%);
+}
+
+.frame.clockwork {
+  border: 2px groove #444;
+  background: radial-gradient(circle, #1e1e1e 40%, #000 100%);
+}
+
+.frame.ruins {
+  border: 2px solid #333;
+  background: radial-gradient(circle, #2b2b2b 40%, #111 100%);
+}
+
+/* Blog Grid */
+.aesthetic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  max-width: 1200px;
+}
+
+/* Blog Card Container */
+.aesthetic-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatFade 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Float + Fade Animation */
+@keyframes floatFade {
+  0% {
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hover Glow */
+.aesthetic-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 60px rgba(200, 180, 150, 0.3);
+}
+
+/* Ornate Title */
+.aesthetic-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #d2b48c;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.aesthetic-card h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #8b5e3c;
+  margin-top: 8px;
+}
+
+/* Tags */
+.aesthetic-tags {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Preview Text */
+.aesthetic-preview {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 2px rgba(255,255,255,0.05);
+}
+
+/* Read More Link */
+.aesthetic-card a {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #d2b48c;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dotted #8b5e3c;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.aesthetic-card a:hover {
+  color: #e6cba8;
+  text-shadow: 0 0 6px rgba(255, 220, 180, 0.3);
+}
+
+.aesthetic-post .aesthetic-card {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: flex-start; /* changed from center */
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  overflow-y: auto; /* allows scrolling if needed */
+}
+
+.aesthetic-post .card-overlay {
+  background: rgba(15, 15, 15, 0.85);
+  border: 2px solid #444;
+  padding: 3rem;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  color: #ccc;
+  overflow: visible; /* ensures content isn't clipped */
+}
+
+
+/* Content Box Overlay */
+.card-overlay {
+  background: rgba(15, 15, 15, 0.75);
+  border: 2px solid #444;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 80%;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* Title */
+.card-overlay h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #d2b48c;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Tags */
+.card-overlay .aesthetic-tags {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* Preview */
+.card-overlay .aesthetic-preview {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+/* Link */
+.card-overlay a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #d2b48c;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dotted #8b5e3c;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.card-overlay a:hover {
+  color: #e6cba8;
+  text-shadow: 0 0 6px rgba(255, 220, 180, 0.3);
+}
+
+.blog-welcome {
+  background-color: rgba(15, 15, 15, 0.95);
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 1000px;
+  border: 2px solid #444;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  color: #ccc;
+
+}
+
+
+.blog-welcome img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+body.aesthetic-post {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  background-color: #1a1a1a; /* fallback */
+}
+
+.circular-frame {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #4b3b2a; /* antique bronze */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  background-color: #1e1e1e;
+  background-image: url('/static/parchment_texture.png'); /* optional texture */
+  background-size: cover;
+  background-blend-mode: multiply;
+  object-fit: cover;
+  padding: 4px;
+  transition: transform 0.3s ease;
+}
+
+.circular-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 244, 220, 0.3); /* candlelight glow */
+}
+
+.quote-page {
+  background-color: #0f0f0f;
+  color: #ccc;
+  font-family: 'EB Garamond', serif;
+  padding: 2rem;
+}
+.relic-frame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #888888;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  background-color: #1a1a1a;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.relic-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.1);
+}
+
+
+.quote-block {
+  background-color: rgba(30, 30, 30, 0.98);
+  border-left: 4px solid #4b3b2a;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.quote-text {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.quote-meta {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.quote-genre {
+  font-style: italic;
+  color: #888;
+}
+body.quote-page {
+  background-image: url('/static/quote-bg.png'); /* your decorative image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #0f0f0f; /* fallback tone */
+  color: #ccc;
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-form input[type="text"] {
+  background-color: #1e1e1e;
+  color: #e0d6c6;
+  border: 2px solid #4b3b2a;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  width: 220px;
+}
+
+.search-form input[type="text"]::placeholder {
+  color: #a89f91;
+  font-style: italic;
+}
+
+.search-form input[type="text"]:focus {
+  outline: none;
+  border-color: #c2b280;
+  box-shadow: 0 0 12px rgba(255, 244, 220, 0.3);
+}
+
+.search-form button {
+  background-color: #4b3b2a;
+  color: #f5f0e6;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #5c4733;
+  box-shadow: 0 0 12px rgba(255, 244, 220, 0.3);
+}
+
+/* 🔮 Unique background for authentication pages */
+body.auth-page {
+  background: url('/static/auth-bg.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #000;
+  font-family: 'Cormorant Garamond', serif;
+  color: #eae6df;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* 🕯️ Form container */
+.auth-form {
+  background-color: rgba(10, 10, 10, 0.85);
+  border: 2px solid #4b3b2a;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* 📜 Form heading */
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #f0e8dc;
+  letter-spacing: 0.5px;
+}
+
+/* ✒️ Labels and inputs */
+.auth-form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #1a1a1a;
+  border: 1px solid #5a4a3a;
+  border-radius: 6px;
+  color: #f5f0e6;
+  font-size: 1rem;
+}
+
+.auth-form input::placeholder {
+  color: #a89f91;
+  font-style: italic;
+}
+
+/* 🧭 Options row */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+/* 🕊️ Submit button */
+.auth-form button {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.75rem;
+  background-color: #4b3b2a;
+  color: #f5f0e6;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #5c4733;
+}
+
+/* 🕯️ Ornate container for login/signup/forgot */
+.auth-box {
+  background-color: rgba(15, 10, 5, 0.88); /* deep brown-black with transparency */
+  border: 2px solid #5a4533; /* bronze frame */
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  font-family: 'Cormorant Garamond', serif;
+  color: #f0e8dc;
+}
+
+/* Optional: subtle inner glow */
+.auth-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 40px rgba(255, 235, 200, 0.05);
+  pointer-events: none;
+}
+.auth-note {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c0b8a8;
+}
+
+.auth-note a {
+  color: #eae6df;
+  text-decoration: underline;
+  font-style: italic;
+}
+.welcome-banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #eae6df;
+}
+
+.welcome-banner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.welcome-banner p {
+  font-size: 1rem;
+  font-style: italic;
+  color: #c0b8a8;
+}
+.flash-messages {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #eae6df;
+  font-style: italic;
+}
+./* ─── Page Layout ─── */
+body.auth-page {
+  background: url('/static/auth-bg.png') center/cover no-repeat fixed;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: #f9f6f2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ─── Scroll Container ─── */
+.profile-scroll {
+  background-color: rgba(20, 20, 20, 0.85);
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 700px;
+  width: 90%;
+  border: 1px solid #444;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  border-radius: 12px;
+}
+
+/* ─── Typography ─── */
+.profile-scroll h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #eae6dc;
+}
+
+.profile-scroll h3 {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #c0b8a8;
+}
+
+.profile-scroll .genre {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #d4cbbf;
+  font-size: 1.1rem;
+}
+
+.profile-scroll .bio {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #d8d2c4;
+  border-left: 3px solid #a89f94;
+  padding-left: 1rem;
+  line-height: 1.6;
+}
+
+/* ─── Footer ─── */
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgba(0,0,0,0.7);
+  color: #c0b8a8;
+  font-size: 0.9rem;
+  font-style: italic;
+  border-top: 1px solid #444;
+}
+
+/* ─── Decorative Elements ─── */
+.threshold-banner,
+.mirror-statue,
+.ambient-decor {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.threshold-image,
+.divider,
+.mirror-image {
+  max-width: 300px;
+  opacity: 0.9;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+.threshold-image:hover,
+.divider:hover,
+.mirror-image:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.mirror-caption,
+.threshold-text {
+  font-style: italic;
+  font-size: 1rem;
+  color: #c0b8a8;
+  margin-top: 0.5rem;
+}
+
+/* ─── Relic Frames ─── */
+.relic-frame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #888;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  background-color: #1a1a1a;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.relic-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.1);
+}
+
+.ambient-decor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+  background-color: #0f0f0f;
+  border-top: 1px solid #444;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .profile-scroll {
+    padding: 1.5rem;
+  }
+
+  .threshold-image,
+  .mirror-image,
+  .divider {
+    max-width: 90%;
+  }
+
+  .relic-frame {
+    width: 90px;
+    height: 90px;
+  }
+}
+/* ─── Page Background ─── */
+body.auth-page {
+  background: url('/static/auth-bg.png') center/cover no-repeat fixed;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: #f9f6f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+/* ─── Header ─── */
+.site-text p {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: #c0b8a8;
+}
+
+/* ─── Form Container ─── */
+.form-scroll {
+  background-color: rgba(20, 20, 20, 0.85);
+  padding: 3rem;
+  margin: 0;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  color: #f9f6f2;
+}
+
+/* ─── Form Title ─── */
+.form-scroll h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #eae6dc;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+}
+
+/* ─── Labels ─── */
+.form-scroll label {
+  display: block;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #d4cbbf;
+  letter-spacing: 0.5px;
+}
+
+/* ─── Inputs & Textareas ─── */
+.form-scroll input,
+.form-scroll textarea {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  background-color: #2a2a2a;
+  color: #f9f6f2;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-scroll input:focus,
+.form-scroll textarea:focus {
+  background-color: #1f1f1f;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+/* ─── File Input ─── */
+.form-scroll input[type="file"] {
+  background-color: transparent;
+  border: none;
+  color: #c0b8a8;
+  font-style: italic;
+}
+
+/* ─── Date Input ─── */
+.form-scroll input[type="date"] {
+  background-color: #2a2a2a;
+  color: #f9f6f2;
+}
+
+/* ─── Button ─── */
+.form-scroll button {
+  margin-top: 2.5rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #cbb279;
+  color: #1c1c1c;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-scroll button:hover {
+  background-color: #e0cfa3;
+  transform: scale(1.02);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .form-scroll {
+    padding: 2rem;
+  }
+
+  .form-scroll h2 {
+    font-size: 2rem;
+  }
+
+  .form-scroll button {
+    font-size: 1rem;
+  }
+}
+
+/* ─── PROFILE PAGE ─── */
+body.profile-page {
+  background-color: rgba(10, 10, 10, 0.9);
+  background-image: url('/static/parchment_texture.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #d8c4a0;
+  font-family: 'EB Garamond', serif;
+  padding: 3rem;
+}
+
+/* ─── MAIN CONTENT WRAPPER ─── */
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+/* ─── Profile Image Section ─── */
+.profile-image-section {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 8rem auto 0;
+  z-index: 2;
+  background-image: url('/static/profile_icon.png'); /* ✅ Placeholder background */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid #4b3b2a;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+}
+
+/* ─── Threshold Banner (Hands + Crown) ─── */
+.threshold-banner {
+  position: absolute;
+  top: -2.8rem; /* ✅ Crown sits just above the circular frame */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Crown Image */
+.threshold-image {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border: none; /* ✅ No border */
+  box-shadow: none; /* ✅ No shadow */
+  border-radius: 0; /* ✅ No rounding */
+  opacity: 1;
+}
+
+
+/* ─── Threshold Text (Quote Cleanly Below) ─── */
+.threshold-text {
+  position: relative;
+  display: block;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #c0b8a8;
+  max-width: 600px;
+  z-index: 0;
+}
+
+
+
+.profile-data {
+  margin-top: 3rem; /* ✅ Separates it from crown + image */
+  text-align: center;
+}
+
+
+/* ─── NAME & TITLE ─── */
+.profile-role {
+  font-size: 1.2rem;
+  color: #bfae94;
+  margin-bottom: 0.25rem;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.profile-name {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #eae6dc;
+  margin-bottom: 1rem;
+  font-family: 'EB Garamond', serif;
+}
+
+/* ─── BIO ─── */
+.profile-bio-section {
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-bio {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #f9f6f2;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+/* ─── MOOD ─── */
+.profile-status {
+  margin-bottom: 1.5rem;
+}
+
+.section-heading {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #c0b8a8;
+  margin-bottom: 0.25rem;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.small-heading {
+  font-size: 0.9rem;
+}
+
+.large-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #f0e0c0;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ─── INSCRIPTION ─── */
+.profile-inscription {
+  margin: 1.5rem 0;
+}
+
+.inscribed-quote {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #f0e0c0;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid #cbb279;
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+}
+
+/* ─── LATIN MOTTO ─── */
+.latin-motto {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #d4cbbf;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── SHELF & TIMELINE ─── */
+.shelf-of-influence ul,
+.timeline ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.shelf-of-influence li,
+.timeline li {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #f9f6f2;
+  margin-bottom: 0.5rem;
+}
+
+.shelf-of-influence li:hover,
+.timeline li:hover,
+.book-entry:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #cbb279;
+  padding-left: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* ─── JOURNAL ENTRY ─── */
+.book-entry {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.book-entry h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-entry .author {
+  font-style: italic;
+  font-size: 1rem;
+  color: #c0b8a8;
+}
+
+/* ─── DIVIDERS ─── */
+.divider {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+  opacity: 0.6;
+}
+
+.divider-small {
+  display: block;
+  margin: 1.5rem auto;
+  width: 10%;
+  opacity: 0.4;
+}
+
+/* ─── MIRROR MOTIF ─── */
+.mirror-image {
+  display: block;
+  margin: 2rem auto;
+  max-width: 320px;
+  opacity: 0.95;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.mirror-caption {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: #c0b8a8;
+  margin-bottom: 1rem;
+}
+
+/* ─── RELIC BOX ─── */
+.ambient-decor {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.1rem;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(20, 20, 20, 0.6);
+  background-size: cover;
+  border: 2px solid rgba(180, 140, 100, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #d2b48c;
+}
+
+/* ─── RELIC FRAMES ─── */
+.relic-frame {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.relic-small { width: 80px; height: 80px; }
+.relic-medium { width: 100px; height: 100px; }
+.relic-large { width: 140px; height: 140px; }
+
+.relic-frame:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+
+/* ─── SIGNATURE LINE ─── */
+.profile-signature {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-signature blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #c0b8a8;
+}
+
+.footer-content {
+  text-align: center;
+}
+.profile-inscription {
+  margin: 2rem 0;
+}
+
+/* Profile Data Wrapper */
+.profile-data {
+  margin-top: 3rem; /* ← Ensures it starts below the quote */
+  text-align: center;
+}
+
+/* ─── Page Background ─── */
+body.auth-page {
+  background: url('/static/auth-bg.png') center/cover no-repeat fixed;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: #f9f6f2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ─── Header ─── */
+.site-text p {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: #c0b8a8;
+}
+
+/* ─── Form Container ─── */
+.form-scroll {
+  background-color: rgba(20, 20, 20, 0.85);
+  padding: 3rem;
+  margin: 3rem auto;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  color: #f9f6f2;
+}
+
+/* ─── Form Title ─── */
+.form-scroll h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #eae6dc;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+}
+
+/* ─── Labels ─── */
+.form-scroll label {
+  display: block;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #d4cbbf;
+  letter-spacing: 0.5px;
+}
+
+/* ─── Inputs & Textareas ─── */
+.form-scroll input,
+.form-scroll textarea {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  background-color: #2a2a2a;
+  color: #f9f6f2;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-scroll input:focus,
+.form-scroll textarea:focus {
+  background-color: #1f1f1f;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+/* ─── File Input ─── */
+.form-scroll input[type="file"] {
+  background-color: transparent;
+  border: none;
+  color: #c0b8a8;
+  font-style: italic;
+}
+
+/* ─── Date Input ─── */
+.form-scroll input[type="date"] {
+  background-color: #2a2a2a;
+  color: #f9f6f2;
+}
+
+/* ─── Button ─── */
+.form-scroll button {
+  margin-top: 2.5rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #cbb279;
+  color: #1c1c1c;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-scroll button:hover {
+  background-color: #e0cfa3;
+  transform: scale(1.02);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .form-scroll {
+    padding: 2rem;
+  }
+
+  .form-scroll h2 {
+    font-size: 2rem;
+  }
+
+  .form-scroll button {
+    font-size: 1rem;
+  }
+}
+
+/* ─── PROFILE PAGE ─── */
+body.profile-page {
+  background-color: rgba(10, 10, 10, 0.6);
+  background-image:  url('/static/profile-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #d8c4a0;
+  font-family: 'Cormorant Garamond', serif;
+  padding: 3rem;
+}
+
+/* ─── MAIN CONTENT WRAPPER ─── */
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── Unified Profile Box ─── */
+.profile-scroll {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 3rem 2rem 4rem;
+  background-color: rgba(20, 20, 20, 0.75);
+  background-blend-mode: multiply;
+  background-size: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  border: 1px solid rgba(212, 190, 140, 0.4);
+  position: relative;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #bfb6a8;
+  line-height: 1.6;
+}
+}
+
+.profile-scroll a {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: #bfb6a8;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dotted #8b5e3c;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.profile-scroll a:hover {
+  color: #e0cfa3;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Crown Banner ─── */
+.backdrop-wrapper{
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -80px; /* Pulls next element upward */
+}
+
+.backdrop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+  border-bottom: 1px solid rgba(212, 190, 140, 0.3);
+  transform: scaleX(1.3); /* ⬅️ Slightly wider */
+}
+
+/* ─── Profile Icon ─── */
+.profile-icon-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-image-circular {
+  width: 220px;
+  height: 220px;
+  border-radius: 90%;
+  object-fit: cover;
+  background-color: #f5f0e6;
+  border: 4px solid #cbb279;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4), inset 0 0 6px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  top: -90px; /* Overlaps the banner by half its height */
+}
+
+.profile-image-circular:hover {
+  transform: scale(1.03);
+}
+
+/* ─── Threshold Quote ─── */
+.profile-quote {
+  font-style: italic;
+  font-size: 1.7rem;
+  color: #cbb279;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ─── Identity Layer ─── */
+.profile-name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #eae6dc;
+  margin-bottom: 1rem;
+  font-family: 'EB Garamond', serif;
+  text-align: center;
+}
+
+.profile-role {
+  font-size: 1.2rem;
+  color: #bfae94;
+  margin-bottom: 0.25rem;
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+}
+
+/* ─── Section Styling ─── */
+.profile-section {
+  animation: fadeIn 0.8s ease both;
+  margin: 2rem auto;
+  max-width: 700px;
+  text-align: left;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.profile-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-heading {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #c0b8a8;
+  margin-bottom: 0.25rem;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* ─── Scroll-Based Reveal ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Ambient Glow ─── */
+.profile-section:hover,
+.book-entry:hover,
+.relic-frame:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* ─── Dividers ─── */
+.divider {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+  opacity: 0.6;
+}
+
+.divider-small {
+  display: block;
+  margin: 1.5rem auto;
+  width: 10%;
+  opacity: 0.4;
+}
+
+/* ─── Mirror Motif ─── */
+.mirror-image {
+  display: block;
+  margin: 2rem auto;
+  max-width: 320px;
+  opacity: 0.95;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.mirror-caption {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: #c0b8a8;
+  margin-bottom: 1rem;
+}
+
+/* ─── Ambient Relics ─── */
+.ambient-decor {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.1rem;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(20, 20, 20, 0.6);
+  background-size: cover;
+  border: 2px solid rgba(180, 140, 100, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #d2b48c;
+}
+
+.relic-frame {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.relic-small { width: 80px; height: 80px; }
+.relic-medium { width: 100px; height: 100px; }
+.relic-large { width: 140px; height: 140px; }
+
+.relic-frame:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Signature Line ─── */
+.profile-signature {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-signature blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #c0b8a8;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+/* ─── Base Styling ─── */
+body.profile-page {
+  background-color: #1f1b17;
+  font-family: 'Cormorant Garamond', serif;
+  color: #bfb6a8; /* Dust Linen */
+  margin: 0;
+  padding: 0;
+}
+
+.profile-scroll {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(38, 34, 28, 0.9);
+  border: 1px solid #8b5e3c;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  border-radius: 8px;
+}
+
+/* ─── Headings ─── */
+.profile-name {
+  font-size: 2rem;
+  color: #d2b48c;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 1px dotted #8b5e3c;
+  padding-bottom: 0.5rem;
+}
+
+
+background-image: url('/static/profile-bg.png');
+/* ─── Form Elements ─── */
+form label {
+  display: block;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #c8bfb2;
+}
+
+form input[type="text"],
+form input[type="date"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  background-color: #2c2823;
+  color: #dcd8d2;
+  border: 1px solid #8b5e3c;
+  border-radius: 4px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+/* ─── Submit Button ─── */
+form button[type="submit"] {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #8b5e3c;
+  color: #f5f0e6;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #a67c52;
+}
+
+/* ─── Optional Glow for Quotes ─── */
+textarea[name="quotes"] {
+  box-shadow: 0 0 8px rgba(212, 190, 140, 0.3);
+}
+
+/* ─── Journal Grid Layout ─── */
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  max-width: 600px;
+}
+
+/* ─── Journal Card ─── */
+.journal-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatFade 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* ─── Float + Fade Animation ─── */
+@keyframes floatFade {
+  0% {
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ─── Hover Glow ─── */
+.journal-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 60px rgba(200, 180, 150, 0.3);
+}
+
+/* ─── Overlay Box ─── */
+.journal-overlay {
+  background: rgba(15, 15, 15, 0.85);
+  border: 2px solid #444;
+  padding: 3rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  color: #ccc;
+  text-align: center;
+}
+
+/* ─── Title ─── */
+.journal-overlay h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #d2b48c;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.journal-overlay h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #8b5e3c;
+  margin: 8px auto 0;
+}
+
+/* ─── Tags ─── */
+.journal-tags {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* ─── Theme ─── */
+.journal-theme {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 2px rgba(255,255,255,0.05);
+}
+
+/* ─── Read Link ─── */
+.journal-overlay a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #d2b48c;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dotted #8b5e3c;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.journal-overlay a:hover {
+  color: #e6cba8;
+  text-shadow: 0 0 6px rgba(255, 220, 180, 0.3);
+}
+
+/* ─── Empty State ─── */
+.journal-empty {
+  background-color: rgba(15, 15, 15, 0.95);
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 1000px;
+  border: 2px solid #444;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  color: #ccc;
+  text-align: center;
+}
+
+.journal-empty a {
+  color: #d2b48c;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dotted #8b5e3c;
+}
+
+.journal-empty a:hover {
+  color: #e6cba8;
+  text-shadow: 0 0 6px rgba(255, 220, 180, 0.3);
+}
+
+
+
+/* ─── Background ─── */
+body.journal-archive {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+}
+
+.delete-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.delete-button {
+  background-color: #5a2a2a;
+  color: #f9f6f2;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #7c3f3f;
+}
+
+
+.logout-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.logout-button {
+  background-color: #3a3a3a;
+  color: #f9f6f2;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #5a5a5a;
+}
+
+.edit-button {
+  background-color: #5a4a3f;
+  color: #f5f0e6;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #7a6655;
+}
+
+.revise-link-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.revise-link-button {
+  background-color:  #5c5248; /* Ashy gray */
+  color: #f5f0e6;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.revise-link-button:hover {
+  background-color:  #7a6f63; /* Lighter ashy brown */
+}
+.edit-profile-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.edit-profile-button {
+   background-color:  #5c5248; /* Ashy gray */
+  color: #f5f0e6;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover {
+  background-color:  #7a6f63; /* Lighter ashy brown */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-right: none;
+    box-shadow: none;
+  }
+
+  .sidebar-book {
+    position: static;
+    margin: 20px auto;
+    display: block;
+    transform: none;
+  }
+
+  .site-header {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .welcome-box.ornate,
+  .book-announcement.ornate,
+  .author-card {
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 95%;
+  }
+
+  .welcome-portrait {
+    position: static;
+    transform: none;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .arch-container,
+  .banner-img {
+    max-width: 100%;
+  }
+
+  .profile-icon {
+    position: static;
+    margin: 10px auto;
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .contact-box,
+  .profile-status,
+  .shelf-of-influence,
+  .timeline {
+    padding-left: 10px;
+    margin-bottom: 30px;
+  }
+
+  .inline-art {
+    width: 140px;
+    height: 140px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .author-portrait {
+    width: 140px;
+    height: 140px;
+  }
+
+  .site-footer {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .book-image {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .framed-decorations {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .frame {
+    width: 100px;
+    height: 100px;
+    padding: 6px;
+  }
+
+  .aesthetic-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .aesthetic-card {
+    height: auto;
+    min-height: 300px;
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aesthetic-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .aesthetic-preview {
+    font-size: 1rem;
+  }
+
+  .aesthetic-tags {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 768px) {
+  .aesthetic-post .aesthetic-card {
+    padding: 2rem 1rem;
+    align-items: center;
+  }
+
+  .aesthetic-post .card-overlay,
+  .card-overlay {
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+
+  .card-overlay h2 {
+    font-size: 1.4rem;
+  }
+
+  .card-overlay .aesthetic-preview {
+    font-size: 1rem;
+  }
+
+  .blog-welcome {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 95%;
+  }
+
+  .circular-frame,
+  .relic-frame {
+    width: 60px;
+    height: 60px;
+    margin: 8px;
+  }
+
+  .quote-block {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .quote-text {
+    font-size: 1.2rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-form input[type="text"],
+  .search-form button {
+    width: 100%;
+  }
+
+  .auth-form,
+  .auth-box {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .auth-form h2,
+  .welcome-banner h2 {
+    font-size: 1.4rem;
+  }
+
+  .welcome-banner p,
+  .auth-note,
+  .form-options {
+    font-size: 0.85rem;
+  }
+
+  .profile-scroll {
+    padding: 1.5rem;
+    margin: 2rem auto;
+    width: 95%;
+  }
+
+  .profile-scroll h2 {
+    font-size: 1.6rem;
+  }
+
+  .profile-scroll h3 {
+    font-size: 1.1rem;
+  }
+
+  .threshold-image,
+  .divider,
+  .mirror-image {
+    max-width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .ambient-decor {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .relic-small { width: 60px; height: 60px; }
+  .relic-medium { width: 80px; height: 80px; }
+  .relic-large { width: 100px; height: 100px; }
+
+  .profile-signature {
+    margin-left: 0;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .form-scroll {
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 95%;
+  }
+
+  .form-scroll h2 {
+    font-size: 1.6rem;
+  }
+
+  .form-scroll label {
+    font-size: 0.9rem;
+  }
+
+  .form-scroll input,
+  .form-scroll textarea {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .form-scroll button {
+    font-size: 1rem;
+    padding: 0.85rem;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    max-width: 95%;
+  }
+
+  .journal-card {
+    height: auto;
+    min-height: 300px;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .journal-overlay {
+    padding: 2rem;
+    max-width: 95%;
+  }
+
+  .journal-overlay h2 {
+    font-size: 1.4rem;
+  }
+
+  .journal-theme {
+    font-size: 1rem;
+  }
+
+  .journal-tags {
+    font-size: 0.85rem;
+  }
+
+  .journal-empty {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 95%;
+  }
+
+  .delete-button,
+  .logout-button,
+  .edit-button,
+  .revise-link-button,
+  .edit-profile-button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .delete-button-container,
+  .logout-button-container,
+  .revise-link-wrapper,
+  .edit-profile-wrapper {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .profile-scroll {
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 95%;
+    font-size: 1.1rem;
+  }
+
+  .profile-scroll h2 {
+    font-size: 1.8rem;
+  }
+
+  .profile-scroll a {
+    font-size: 1.2rem;
+  }
+
+  .backdrop-wrapper {
+    height: 240px;
+    margin-bottom: -60px;
+  }
+
+  .profile-image-circular {
+    width: 160px;
+    height: 160px;
+    top: -80px;
+  }
+
+  .profile-quote {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-name {
+    font-size: 2.2rem;
+  }
+
+  .profile-role {
+    font-size: 1rem;
+  }
+
+  .profile-section {
+    padding: 0.5rem 0;
+    margin: 1.5rem auto;
+  }
+
+  .section-heading {
+    font-size: 0.9rem;
+  }
+
+  .divider,
+  .divider-small,
+  .mirror-image {
+    max-width: 90%;
+  }
+
+  .ambient-decor {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .relic-small { width: 60px; height: 60px; }
+  .relic-medium { width: 80px; height: 80px; }
+  .relic-large { width: 100px; height: 100px; }
+
+  .profile-signature {
+    margin-left: 0;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  form label {
+    font-size: 0.95rem;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  form button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    max-width: 95%;
+  }
+
+  .journal-card {
+    height: auto;
+    min-height: 300px;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .journal-overlay {
+    padding: 2rem;
+    max-width: 95%;
+  }
+
+  .journal-overlay h2 {
+    font-size: 1.4rem;
+  }
+
+  .journal-theme {
+    font-size: 1rem;
+  }
+
+  .journal-tags {
+    font-size: 0.85rem;
+  }
+
+  .journal-empty {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 95%;
+  }
+
+  .delete-button,
+  .logout-button,
+  .edit-button,
+  .revise-link-button,
+  .edit-profile-button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .delete-button-container,
+  .logout-button-container,
+  .revise-link-wrapper,
+  .edit-profile-wrapper {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+
+/* ─── Reset Password Page ─── */
+.auth-reset {
+  background: #1c1c1c; /* deep library black */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Garamond', serif;
+  color: #e6e0d4; /* parchment ivory */
+  background-image: url("data:image/png;base64,..."); /* parchment texture if you have one */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* ─── Reset Box ─── */
+.auth-reset-box {
+  background: rgba(28, 28, 28, 0.95); /* ink‑washed overlay */
+  border: 2px solid #5a4632; /* aged bronze border */
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
+
+.auth-reset-box h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #d4c4a8; /* candle‑lit gold */
+  letter-spacing: 1px;
+}
+
+.auth-reset-box label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #cbbf9d;
+}
+
+.auth-reset-box input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #5a4632;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+  background: #2a2a2a;
+  color: #e6e0d4;
+}
+
+.auth-reset-box input::placeholder {
+  color: #8c7b65;
+  font-style: italic;
+}
+
+.auth-reset-box button {
+  background: #5a4632; /* bronze candle base */
+  color: #e6e0d4;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-family: 'Cinzel', serif;
+}
+
+.auth-reset-box button:hover {
+  background: #7a6248; /* glowing bronze */
+  transform: scale(1.05);
+}
+
+.auth-reset-box .flash-messages {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  color: #cbbf9d;
+  font-style: italic;
+}
+8

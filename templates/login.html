@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-page">
+
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+      <div class="site-text">
+        <h1>Ravens & Quill</h1>
+        <p>Legere est credere</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-box">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/login">
+      <h2>Enter the Archive</h2>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Scholar ID" required>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Ink-bound secret" required>
+
+      <div class="form-options">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+        <a href="/forgot">Forgot password?</a>
+      </div>
+
+      <button type="submit">Unlock Sanctuary</button>
+    </form>
+
+    <p class="auth-note">
+      No archive key yet? <a href="/signup">Create one</a>.
+    </p>
+    <p class="auth-note">
+      Forgotten your secret? <a href="/forgot">Recover it</a>.
+    </p>
+  </main>
+
+</body>
+</html>

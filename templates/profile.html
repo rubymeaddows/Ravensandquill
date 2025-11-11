@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile – Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
+</head>
+<body>
+<body class="profile-page">
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+     <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<body class="profile-page parchment-bg">
+
+<div class="main-content">
+  <main class="profile-scroll">
+
+    <!-- 🪞 Velvet Box -->
+    <div class="profile-box">
+
+      <!-- 🖼️ Horizontal Backdrop -->
+      <div class="backdrop-wrapper">
+        <img src="{{ url_for('static', filename='crowning.png') }}" alt="Backdrop" class="backdrop-image">
+      </div>
+
+      <!-- 👤 Profile Icon -->
+      <div class="profile-icon-wrapper">
+        <img src="{{ profile['image_url'] or url_for('static', filename='profile_icon.png') }}" alt="Profile Icon" class="profile-image-circular">
+      </div>
+
+      <!-- 📜 Profile Content -->
+      <div class="profile-content">
+        <h2 class="profile-name">{{ profile['name'] }}</h2>
+        <h3 class="profile-role">{{ profile['title'] }}</h3>
+
+        {% if profile['quote'] %}
+          <p class="profile-quote">“{{ profile['quote'] }}”</p>
+        {% else %}
+          <p class="profile-quote">“No epigraph inscribed.”</p>
+        {% endif %}
+
+        <section class="profile-section">
+          <h4>Poetic Bio</h4>
+          <p>{{ profile['bio'] }}</p>
+        </section>
+
+        <img src="{{ url_for('static', filename='divider1.png') }}" class="divider">
+
+        <section class="profile-section">
+          <h4>Admired Thinkers</h4>
+          <p>{{ profile['thinkers'] if profile['thinkers'] else 'No thinkers cited.' }}</p>
+        </section>
+
+        <section class="profile-section">
+          <h4>Academic Allegiances</h4>
+          <p>{{ profile['allegiances'] if profile['allegiances'] else 'No allegiances declared.' }}</p>
+        </section>
+
+        <section class="profile-section">
+          <h4>Literary Relics</h4>
+          <p>{{ profile['relics'] if profile['relics'] else 'No relics archived.' }}</p>
+        </section>
+
+        <img src="{{ url_for('static', filename='divider2.png') }}" class="divider divider-small">
+
+        <section class="profile-section">
+          <h4>Annotations</h4>
+          <p>{{ profile['annotations'] if profile['annotations'] else 'No footnotes inscribed.' }}</p>
+        </section>
+
+        <section class="profile-section">
+          <h4>Dreams & Visions</h4>
+          <p>{{ profile['visions'] if profile['visions'] else 'No visions shared.' }}</p>
+        </section>
+
+        <section class="profile-section">
+          <h4>Date of Inscription</h4>
+          <p>{{ profile['joined'] }}</p>
+        </section>
+
+        <section class="mirror-statue">
+          <img src="{{ url_for('static', filename='statue-imp.png') }}" alt="Statue in Mirror" class="mirror-image">
+          <p class="mirror-caption">“Reflection is the final archive.”</p>
+        </section>
+
+
+        <div class="edit-profile-wrapper">
+         <a href="{{ url_for('edit_profile') }}">
+          <button class="edit-profile-button">Edit Profile</button>
+         </a>
+        </div>
+ 
+        <div class="logout-button-container">
+         <form action="{{ url_for('logout') }}" method="GET">
+          <button type="submit" class="logout-button">Log Out Of Sanctuary</button>
+         </form>
+       </div>
+
+   
+
+
+
+
+        <div class="ambient-decor">
+          <!-- Relic images -->
+          <img src="{{ url_for('static', filename='lamp.png') }}" class="relic-frame relic-large">
+          <img src="{{ url_for('static', filename='quill.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='key.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='clock.png') }}" class="relic-frame relic-large">
+          <img src="{{ url_for('static', filename='art.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='rose.png') }}" class="relic-frame relic-large">
+          <img src="{{ url_for('static', filename='lamp1.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='book1.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='book2.png') }}" class="relic-frame relic-large">
+          <img src="{{ url_for('static', filename='chess.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='statue2.png') }}" class="relic-frame relic-large">
+          <img src="{{ url_for('static', filename='architecture.png') }}" class="relic-frame relic-large">
+          <img src="{{ url_for('static', filename='ruins2.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='painting5.png') }}" class="relic-frame relic-medium">
+          <img src="{{ url_for('static', filename='painting3.png') }}" class="relic-frame relic-large">
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+<footer class="site-footer">
+  <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
+</footer>
+
+</body>
+</html>

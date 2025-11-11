@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup – Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="logo-title">
+    <a href="/signup">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    </a>
+    <div class="site-text">
+      <h1>Ravens & Quill</h1>
+      <p>Legere est credere</p>
+    </div>
+  </div>
+</header>
+<div class="welcome-banner">
+  <h2>Welcome to Ravens & Quill</h2>
+  <p>Your archive key awaits. Legere est credere.</p>
+</div>
+
+
+<main class="auth-box">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flash-messages">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="/signup" id="signup-form">
+    <h2>Create Your Archive Key</h2>
+
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" placeholder="Scholar ID" required>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Ink-bound secret" required>
+
+    <label for="confirm">Confirm Password</label>
+    <input type="password" name="confirm" id="confirm" placeholder="Repeat your secret" required>
+
+    <label>
+      <input type="checkbox" onclick="togglePassword()"> Show password
+    </label>
+
+    <button type="submit">Create Account</button>
+  </form>
+
+  <p class="auth-note">
+    Already possess a key? <a href="/login">Return to the gate</a>.
+  </p>
+</main>
+
+<script>
+  function togglePassword() {
+    const pw = document.getElementById("password");
+    const confirm = document.getElementById("confirm");
+    pw.type = pw.type === "password" ? "text" : "password";
+    confirm.type = confirm.type === "password" ? "text" : "password";
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Reading Journals</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="journal-archive">
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('reading_journal_redirect') }}">Journal</a>
+    <a href="{{ url_for('create_reading_journal') }}">Add Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<div class="journal-grid">
+  {% for journal in journals %}
+    <div class="journal-card" style="background-image: url('{{ journal.cover_image_url or url_for("static", filename="default-cover.png") }}');">
+      <div class="journal-overlay">
+        <h2>{{ journal.title }}</h2>
+        <div class="journal-tags">{{ journal.tags }}</div>
+        <div class="journal-theme">{{ journal.theme }}</div>
+        <a href="{{ url_for('view_reading_journal', journal_id=journal.id) }}">Read Journal</a>
+      </div>
+    </div>
+  {% else %}
+    <div class="journal-empty">
+      <h2>No journals inscribed yet</h2>
+      <p>Begin your archive by <a href="{{ url_for('create_reading_journal') }}">creating a new journal</a>.</p>
+    </div>
+  {% endfor %}
+</div>
+
+</body>
+</html>
+	

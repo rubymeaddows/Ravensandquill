@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author | Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<body class="author-page">
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+
+
+<main class="author-page">
+  <div class="motto">
+    <img src="{{ url_for('static', filename='quill.png') }}" alt="Quill" class="quill-icon">
+    <h2><em>Verba sunt specula animae</em></h2>
+  </div>
+
+  <div class="author-card ornate">
+    <img src="{{ url_for('static', filename='portrait.png') }}" alt="Author Portrait" class="author-portrait">
+
+    <h1>Author Page</h1>
+    <p>Hi, I’m <strong>Sidra Noor, aka R. V. Meaddows</strong>, author of <em>If the Silence Fell</em> — a passionate writer and avid reader.</p>
+
+    <p>Outside of fiction, I spend my time sketching, wandering through picturesque places, capturing simple and rare moments, and collecting poems that are as captivating as history.</p>
+
+    <p>With this website I hope to create a comfortable and helpful space for all members of the book community. <strong>Happy reading!!</strong></p>
+
+    <div class="contact-box">
+      <p><strong>For any inquiry, suggestions, advice or even just small talk, contact:</strong></p>
+      <p class="email">📨 rubymeaddows@gmail.com</p>
+    </div>
+
+    <div class="author-decor">
+      <img src="{{ url_for('static', filename='/painting1.png') }}" alt="Painting" class="inline-art">
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
+</footer>
+</body>
+</html>

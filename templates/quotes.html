@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Library | Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="quote-page">
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<main class="quotes">
+  <div class="motto">
+    <img src="{{ url_for('static', filename='quill.png') }}" alt="Quill" class="quill-icon">
+    <h2><em>Memoria litterarum vivit</em></h2>
+  </div>
+
+  <h1>Quote Library</h1>
+
+  <form method="POST" class="search-form">
+    <input type="text" name="author" placeholder="Search by author">
+    <input type="text" name="genre" placeholder="Search by genre">
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="quote-list">
+    {% for q in quotes %}
+      <div class="quote-block">
+        <p class="quote-text">“{{ q.quote }}”</p>
+        <p class="quote-meta">— {{ q.author }} <span class="quote-genre">({{ q.genre }})</span></p>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if has_more %}
+    <div class="load-more">
+      <a href="{{ url_for('quotes', page=page + 1) }}">🕯️ Load More Quotes</a>
+    </div>
+  {% endif %}
+</main>
+<footer class="site-footer">
+  <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
+</footer>
+
+</body>
+</html>

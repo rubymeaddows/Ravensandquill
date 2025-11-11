@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Reading Journal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+
+    .journal-box h2 {
+      font-size: 2rem;
+      color: #d2b48c;
+      text-align: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px dotted #8b5e3c;
+      padding-bottom: 0.5rem;
+    }
+
+    form label {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #c8bfb2;
+    }
+
+    form input[type="text"],
+    form input[type="date"],
+    form textarea,
+    form select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      background-color: #2c2823;
+      color: #dcd8d2;
+      border: 1px solid #8b5e3c;
+      border-radius: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button[type="submit"] {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #8b5e3c;
+      color: #f5f0e6;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #a67c52;
+    }
+   
+    .layout-grid {
+     display: grid;
+     grid-template-columns: 250px 1fr;
+     min-height: 100vh;
+    }
+
+    body.create-journal-page {
+  margin: 0;
+  padding: 0;
+  background-image: url('{{ url_for("static", filename="c_journal-bg.png") }}');
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgba(38, 34, 28, 0.9);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.main-content {
+  margin-left: 250px;
+  width: calc(100vw - 250px);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.journal-box {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background-color: rgba(38, 34, 28, 0.7);
+  border: 1px solid #8b5e3c;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+  </style>
+</head>
+<body class="create-journal-page">
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<div class="main-content">
+<div class="journal-box">
+  <h2 class="profile-name">Inscribe a New Reading Journal</h2>
+  <form method="POST" action="{{ url_for('create_reading_journal') }}">
+
+    <!-- 📜 Manuscript Identity -->
+    <label for="title">Name (Book Title):</label>
+    <input type="text" name="title" required>
+
+    <label for="author">Written by (Author):</label>
+    <input type="text" name="author" required>
+
+    <label for="cover_image_url">Book Cover (Image URL):</label>
+    <input type="text" name="cover_image_url">
+
+    <label for="tags">Tags (Motifs – comma separated):</label>
+    <input type="text" name="tags" placeholder="mirror, crown, threshold">
+
+    <label for="theme">Theme (One-word essence):</label>
+    <input type="text" name="theme" placeholder="grief, transformation">
+
+    <!-- ⏳ Chronicle of Reading -->
+    <label for="date_started">First Page Opened:</label>
+    <input type="date" name="date_started">
+
+    <label for="date_finished">Last Page Closed:</label>
+    <input type="date" name="date_finished">
+
+    <label for="status">Reading Status:</label>
+    <select name="status">
+      <option value="Dormant">Dormant</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+      <option value="Abandoned">Abandoned</option>
+    </select>
+
+    <label for="is_hidden">Visibility:</label>
+    <select name="is_hidden">
+      <option value="False">Visible to the Archive</option>
+      <option value="True">Hidden from the Archive</option>
+    </select>
+
+    <!-- 🪞 Reflections and Resonance -->
+    <label for="quotes">Lines That Linger (1–2 quotes):</label>
+    <textarea name="quotes" rows="3" placeholder="“The ink remembers what the soul forgets.”"></textarea>
+
+    <label for="rating_crowns">Rating (Crowns):</label>
+    <select name="rating_crowns">
+      <option value="0">0 👑</option>
+      <option value="1">1 👑</option>
+      <option value="2">2 👑</option>
+      <option value="3">3 👑</option>
+      <option value="4">4 👑</option>
+      <option value="5">5 👑</option>
+    </select>
+
+    <label for="reflection">Reflection (Emotional Echo):</label>
+    <textarea name="reflection" rows="4"></textarea>
+
+    <label for="thoughts_characters">Thoughts – Characters:</label>
+    <textarea name="thoughts_characters" rows="4"></textarea>
+
+    <label for="thoughts_plot">Thoughts – Plot:</label>
+    <textarea name="thoughts_plot" rows="4"></textarea>
+
+    <button type="submit">Seal the Journal</button>
+  </form>
+</div>
+</div>
+
+<footer class="site-footer">
+  <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
+</footer>
+
+</body>
+</html>

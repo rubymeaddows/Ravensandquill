@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password – Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-reset">
+  <main class="auth-reset-box">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('reset_password', token=token) }}">
+  <h2>Forge a New Archive Key</h2>
+
+  <label for="password">New Password</label>
+  <input type="password" name="password" id="password" placeholder="Enter new key" required>
+
+  <label for="confirm_password">Confirm Password</label>
+  <input type="password" name="confirm_password" id="confirm_password" placeholder="Re-enter new key" required>
+
+  <button type="submit">Reset Key</button>
+</form>
+
+    <section class="guidance">
+      <h3>Need Assistance?</h3>
+      <p>If you encounter issues, return to the <a href="{{ url_for('forgot') }}">Forgot Password</a> page 
+      to request a new reset link.</p>
+      <p>Once reset, you may <a href="{{ url_for('login') }}">log in</a> immediately with your new credentials.</p>
+    </section>
+  </main>
+</body>
+</html>

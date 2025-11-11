@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>If The Silence Fell | Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="silence-page">
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<main class="book-page">
+  <div class="motto">
+    <img src="{{ url_for('static', filename='quill.png') }}" alt="Quill" class="quill-icon">
+    <h2><em>In silentio, veritas sussurrat</em></h2>
+  </div>
+
+  <article class="book-announcement ornate">
+    <h1>If The Silence Fell</h1>
+    <p class="tagline"><strong>Who is the killer? Who is protecting the lie? And how far will the four go before the truth starts fading back into old, poisoned tales and death closes in on them?</strong></p>
+
+    <p>When two young boys are found dead in the damp, raining woods, the town erupts in chaos and whispers. A teenage girl is apprehended as the prime suspect and placed under mental care. Lenora Vexley, a talented but extreme therapist is tasked with unravelling the psychotic and broken mind of Ravella Dace, but as truth and reflections blur, Lenora is forced to face her own ruins.</p>
+
+    <p>Sergeant Damian Thornfield, an enigmatic man with authority stitched into him leads the case with a friend and trusted accomplice, Kai Wong, whose spontaneity and ease mask something haunting and unspoken.</p>
+
+    <p>As the four of them start digging into the graves too deep, their past meddles up the paths and the killer moves closer, always twelve steps ahead and leaving no trace behind.</p>
+
+    <hr>
+
+    <p>Hello, fellow book lovers,</p>
+
+    <p>I’m beyond excited to announce the release of my debut novel, <em>If The Silence Fell</em>. 📚✨</p>
+
+    <p>If you're a fan of YA thrillers, this story is for you. It's filled with mystery, psychological depth, and an atmosphere that lingers long after the page is turned. Two young boys are found dead, their bodies cold and silent. No evidence. No clear suspects. No answers. As the investigation unfolds, the real question becomes: Is this really about the murders? Or is there something far darker at play—something none of the four main characters are willing to face? 🕯️</p>
+
+    <p>This mystery is a deep dive into the shadows of the human psychology. Four characters, each hiding their own secrets, must confront the truth that might tear their world apart. As they dig deeper, they uncover connections between the past and present that they never could have imagined. And the cost of knowing the truth might be far too high… 🖤</p>
+
+    <p>If you’re drawn to dark academia and complex, twisted tales, <em>If The Silence Fell</em> will keep you turning pages until the very last. It’s a journey where silence is never truly empty, and the truth is a dangerous thing to seek. 📖🔍</p>
+
+    <h3>✨ Grab Your Copy of If The Silence Fell Now! ✨</h3>
+
+    <p>Are you ready for a journey that will keep you on the edge of your seat? 📚 Dive into <em>If The Silence Fell</em>—a thrilling tale filled with unexpected twists, unforgettable characters, and a plot that will leave you breathless. Whether you're a fan of dark academia themed thriller or just love a good story, this book has something for everyone!</p>
+
+    <p>Step into a world of darkness, shadows, mystery and glamour!</p>
+
+    <p>Don't miss out on the book everyone is getting ready to talk about. Order your copy today and start reading tonight! 📖</p>
+
+    <p>📲 Available now on <strong>Amazon</strong> and <strong>Notion Press</strong>! Grab yours before it's too late!</p>
+
+    <img src="{{ url_for('static', filename='book-cover.png') }}" alt="Book Cover" class="book-image">
+    <img src="{{ url_for('static', filename='moodboard.png') }}" alt="Moodboard" class="book-image">
+
+    <p><a href="https://pin.it/1CRMRiGt6" target="_blank" class="pinterest-link">🖼️ If The Silence Fell — Pinterest Moodboard</a></p>
+
+    <blockquote><em>“The devil in our mind silences the demons outside.”</em></blockquote>
+
+    <div class="contact-box">
+      <p><strong>For inquiries, suggestions, or small talk:</strong></p>
+      <p class="email">📨 rubymeaddows@gmail.com</p>
+    </div>
+  </article>
+</body>
+</html>

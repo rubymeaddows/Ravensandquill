@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Profile – Ravens & Quill</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-page">
+
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+      <div class="site-text">
+        <h1>Ravens & Quill</h1>
+        <p>Legere est credere</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="form-scroll">
+    <h2>Inscribe a New Profile</h2>
+
+    <form method="POST" action="/create-profile" enctype="multipart/form-data" class="inscription-form">
+
+  <!-- 🕯️ Identity Layer -->
+  <label for="name">Full Name</label>
+  <input type="text" name="name" id="name" required>
+
+  <label for="title">Role or Title</label>
+  <input type="text" name="title" id="title" placeholder="e.g. Archivist, Curator, Reader, Dreamer" required>
+
+  <label for="quote">Epigraph / Guiding Philosophy</label>
+  <input type="text" name="quote" id="quote" placeholder="e.g. 'To hold the crown is to bear the story.'" required>
+
+  <label for="bio">Poetic Bio</label>
+  <textarea name="bio" id="bio" rows="3" placeholder="e.g. Seeker of relics, reader of ruins, keeper of quiet lore..." required></textarea>
+
+  <label for="image">Portrait (Profile Image)</label>
+  <input type="file" name="image" id="image" accept="image/*">
+
+  <!-- 📚 Influence & Affiliation -->
+  <label for="thinkers">Admired Thinkers <span class="optional">(optional)</span></label>
+  <textarea name="thinkers" id="thinkers" rows="2" placeholder="e.g. Borges, Sappho, Camus, Woolf"></textarea>
+
+  <label for="allegiances">Academic Allegiances <span class="optional">(optional)</span></label>
+  <input type="text" name="allegiances" id="allegiances" placeholder="e.g. The House of Mirrors, Order of the Quill">
+
+  <label for="relics">Literary Relics <span class="optional">(optional)</span></label>
+  <textarea name="relics" id="relics" rows="2" placeholder="e.g. The Secret History, Meditations, The Library of Babel"></textarea>
+
+  <label for="annotations">Annotations <span class="optional">(optional)</span></label>
+  <textarea name="annotations" id="annotations" rows="3" placeholder="e.g. Responses to quotes, footnotes of thought..."></textarea>
+
+  <label for="visions">Dreams or Visions <span class="optional">(optional)</span></label>
+  <textarea name="visions" id="visions" rows="3" placeholder="e.g. Surreal fragments, symbolic dreams, imagined thresholds..."></textarea>
+
+  <!-- 🗝️ Inscription Date -->
+  <label for="joined">Date of Inscription</label>
+  <input type="date" name="joined" id="joined" required>
+
+  <button type="submit">Inscribe Profile</button>
+</form>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Ravens & Quill. All relics preserved.</p>
+  </footer>
+
+</body>
+</html>

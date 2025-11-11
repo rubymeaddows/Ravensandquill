@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quote Library</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="profile-icon">
+    <img src="{{ url_for('static', filename='profile.png') }}" alt="Profile">
+  </div>
+
+  <aside class="sidebar">
+    <h2>Ravens & Quill</h2>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/author">Author</a>
+      <a href="/silence">If The Silence Fell</a>
+      <a href="/quotes">Quote Library</a>
+      <a href="/aesthetics">Various Aesthetics</a>
+      <a href="/journal">Reading Journal</a>
+      <a href="/profile">Profile</a>
+    </nav>
+  </aside>
+
+  <main class="quotes">
+    <h1>Quote Library</h1>
+    <form method="POST" class="search-form">
+      <input type="text" name="author" placeholder="Search by author">
+      <input type="text" name="genre" placeholder="Search by genre">
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="quote-list">
+      {% for q in quotes %}
+        <div class="quote-block">
+          <p class="quote-text">“{{ q.quote }}”</p>
+          <p class="quote-meta">— {{ q.author }} <span>({{ q.genre }})</span></p>
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

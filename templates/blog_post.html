@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ blog.title }} | Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="aesthetic-post">
+<body class="aesthetic-post" style="background-image: url('{{ url_for('static', filename='blog' ~ blog_id ~ '.png') }}');">
+
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+     {% if session.email %}
+    <a href="/profile">Profile</a>
+  {% else %}
+    <a href="/login">Login</a>
+  {% endif %}
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<main>
+   <section class="intro ornate blog-welcome">
+    {{ blog.content | safe }}
+   </section>
+   <section class="framed-decorations">
+    <div class="frame gothic">
+      <img src="{{ url_for('static', filename='painting2.png') }}" alt="Painting">
+    </div>
+    <div class="frame candlelit">
+      <img src="{{ url_for('static', filename='lamp.png') }}" alt="Lamp">
+    </div>
+    <div class="frame rosewood">
+      <img src="{{ url_for('static', filename='rose.png') }}" alt="Rose">
+    </div>
+    <div class="frame ironkey">
+      <img src="{{ url_for('static', filename='key.png') }}" alt="Key">
+    </div>
+    <div class="frame clockwork">
+      <img src="{{ url_for('static', filename='clock.png') }}" alt="Clock">
+    </div>
+    <div class="frame ruins">
+      <img src="{{ url_for('static', filename='ruins1.png') }}" alt="Ruins">
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

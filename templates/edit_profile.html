@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revise Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('{{ url_for("static", filename="profile-bg.png") }}');
+      background-size: cover;
+      background-attachment: fixed;
+      background-color: rgba(38, 34, 28, 0.9);
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .profile-box {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: rgba(38, 34, 28, 0.7);
+      border: 1px solid #8b5e3c;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .profile-box h2 {
+      font-size: 2rem;
+      color: #d2b48c;
+      text-align: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px dotted #8b5e3c;
+      padding-bottom: 0.5rem;
+    }
+
+    form label {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #c8bfb2;
+    }
+
+    form input[type="text"],
+    form input[type="date"],
+    form input[type="file"],
+    form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      background-color: #2c2823;
+      color: #dcd8d2;
+      border: 1px solid #8b5e3c;
+      border-radius: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button[type="submit"] {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #8b5e3c;
+      color: #f5f0e6;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #a67c52;
+    }
+
+    .optional {
+      font-weight: normal;
+      font-style: italic;
+      color: #a89f91;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-box">
+    <h2>Revise Your Profile</h2>
+    <form method="POST" action="{{ url_for('edit_profile') }}" enctype="multipart/form-data">
+
+   <!-- 🕯️ Identity Layer -->
+<label for="name">Full Name</label>
+<input type="text" name="name" id="name" value="{{ user.name }}" required>
+
+<label for="title">Role or Title</label>
+<input type="text" name="title" id="title" value="{{ user.title }}" placeholder="e.g. Archivist, Curator, Reader, Dreamer" required>
+
+<label for="quote">Epigraph / Guiding Philosophy</label>
+<input type="text" name="quote" id="quote" value="{{ user.quote }}" placeholder="e.g. 'To hold the crown is to bear the story.'" required>
+
+<label for="bio">Poetic Bio</label>
+<textarea name="bio" id="bio" rows="3" placeholder="e.g. Seeker of relics, reader of ruins, keeper of quiet lore..." required>{{ user.bio }}</textarea>
+
+<label for="image">Portrait (Profile Image)</label>
+<input type="file" name="image" id="image" accept="image/*">
+
+<!-- 📚 Influence & Affiliation -->
+<label for="thinkers">Admired Thinkers <span class="optional">(optional)</span></label>
+<textarea name="thinkers" id="thinkers" rows="2" placeholder="e.g. Borges, Sappho, Camus, Woolf">{{ user.thinkers }}</textarea>
+
+<label for="allegiances">Academic Allegiances <span class="optional">(optional)</span></label>
+<input type="text" name="allegiances" id="allegiances" value="{{ user.allegiances }}" placeholder="e.g. The House of Mirrors, Order of the Quill">
+
+<label for="relics">Literary Relics <span class="optional">(optional)</span></label>
+<textarea name="relics" id="relics" rows="2" placeholder="e.g. The Secret History, Meditations, The Library of Babel">{{ user.relics }}</textarea>
+
+<label for="annotations">Annotations <span class="optional">(optional)</span></label>
+<textarea name="annotations" id="annotations" rows="3" placeholder="e.g. Responses to quotes, footnotes of thought...">{{ user.annotations }}</textarea>
+
+<label for="visions">Dreams or Visions <span class="optional">(optional)</span></label>
+<textarea name="visions" id="visions" rows="3" placeholder="e.g. Surreal fragments, symbolic dreams, imagined thresholds...">{{ user.visions }}</textarea>
+
+<!-- 🗝️ Inscription Date -->
+<label for="joined">Date of Inscription</label>
+<input type="date" name="joined" id="joined" value="{{ user.joined }}" required>
+
+
+      <button type="submit">Inscribe the Revisions</button>
+    </form>
+  </div>
+</body>
+</html>

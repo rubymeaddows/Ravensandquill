@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Various Aesthetics | Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="aesthetics-page">
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+    
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
+
+<main>
+  <div class="motto">
+    <img src="{{ url_for('static', filename='quill.png') }}" alt="Quill" class="quill-icon">
+    <h2><em>Ars Longa Vita Brevis</em></h2>
+  </div>
+
+  <section class="intro ornate">
+    <h1>Various Aesthetics</h1>
+    <p>Welcome to the aesthetic archive — a curated collection of literary moods, visual styles, and thematic reflections. Each blog explores a distinct aesthetic, from the haunting elegance of dark academia to the speculative architecture of science fiction. These entries are designed to inspire, immerse, and provoke reflection on how atmosphere shapes storytelling.</p>
+  </section>
+
+  <section class="aesthetic-grid">
+    {% for id, blog in blogs.items() %}
+      <div class="aesthetic-card" style="background-image: url('{{ url_for('static', filename='blog' ~ id ~ '.png') }}');">
+        <div class="card-overlay">
+          <h2>{{ blog.title }}</h2>
+          <p class="aesthetic-tags">{{ blog.tags }}</p>
+          <p class="aesthetic-preview"><em>{{ blog.preview }}</em></p>
+          <a href="{{ url_for('blog_post', blog_id=id) }}">Read More →</a>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section class="framed-decorations">
+    <div class="frame gothic">
+      <img src="{{ url_for('static', filename='painting2.png') }}" alt="Painting">
+    </div>
+    <div class="frame candlelit">
+      <img src="{{ url_for('static', filename='lamp.png') }}" alt="Lamp">
+    </div>
+    <div class="frame rosewood">
+      <img src="{{ url_for('static', filename='rose.png') }}" alt="Rose">
+    </div>
+    <div class="frame ironkey">
+      <img src="{{ url_for('static', filename='key.png') }}" alt="Key">
+    </div>
+    <div class="frame clockwork">
+      <img src="{{ url_for('static', filename='clock.png') }}" alt="Clock">
+    </div>
+    <div class="frame ruins">
+      <img src="{{ url_for('static', filename='ruins1.png') }}" alt="Ruins">
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

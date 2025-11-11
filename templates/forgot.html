@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password – Ravens & Quill</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-page">
+
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+      <div class="site-text">
+        <h1>Ravens & Quill</h1>
+        <p>Legere est credere</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-box">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('forgot') }}">
+      <h2>Recover Your Archive Key</h2>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Scholar ID" required>
+
+      <button type="submit">Send Reset Instructions</button>
+    </form>
+
+    <p class="auth-note">
+      Remembered your secret? <a href="/login">Unlock the archive</a>.
+    </p>
+    <p class="auth-note">
+      No key yet? <a href="/signup">Create one</a>.
+    </p>
+  </main>
+
+</body>
+</html>
