@@ -187,6 +187,11 @@ def logout():
     flash("You have been signed out.")
     return redirect(url_for('home'))
 
+@app.route("/loading")
+def loading():
+    # Dark academia loading page
+    return render_template("loading.html")
+
 # ─── Home ───
 @app.route('/')
 def home():
@@ -495,4 +500,5 @@ def edit_profile():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
+
 
