@@ -1081,46 +1081,7 @@ body.auth-page {
   min-height: 100vh;
 }
 
-/* ─── Scroll Container ─── */
-.profile-scroll {
-  background-color: rgba(20, 20, 20, 0.85);
-  padding: 2rem;
-  margin: 3rem auto;
-  max-width: 700px;
-  width: 90%;
-  border: 1px solid #444;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
-  border-radius: 12px;
-}
 
-/* ─── Typography ─── */
-.profile-scroll h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  color: #eae6dc;
-}
-
-.profile-scroll h3 {
-  font-size: 1.3rem;
-  font-style: italic;
-  color: #c0b8a8;
-}
-
-.profile-scroll .genre {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #d4cbbf;
-  font-size: 1.1rem;
-}
-
-.profile-scroll .bio {
-  margin-top: 1rem;
-  font-style: italic;
-  color: #d8d2c4;
-  border-left: 3px solid #a89f94;
-  padding-left: 1rem;
-  line-height: 1.6;
-}
 
 /* ─── Footer ─── */
 footer {
@@ -1373,30 +1334,6 @@ body.profile-page {
   border-radius: 50%;
   border: 3px solid #4b3b2a;
   box-shadow: 0 0 12px rgba(0,0,0,0.6);
-}
-
-/* ─── Threshold Banner (Hands + Crown) ─── */
-.threshold-banner {
-  position: absolute;
-  top: -2.8rem; /* ✅ Crown sits just above the circular frame */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-/* Crown Image */
-.threshold-image {
-  width: 220px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border: none; /* ✅ No border */
-  box-shadow: none; /* ✅ No shadow */
-  border-radius: 0; /* ✅ No rounding */
-  opacity: 1;
 }
 
 
@@ -1790,12 +1727,6 @@ body.profile-page {
 }
 
 /* ─── MAIN CONTENT WRAPPER ─── */
-.main-content {
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  display: flex;
-  justify-content: center;
-}
 
 /* ─── Unified Profile Box ─── */
 .profile-scroll {
@@ -2053,20 +1984,10 @@ body.profile-page {
   padding: 0;
 }
 
-.profile-scroll {
-  max-width: 700px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: rgba(38, 34, 28, 0.9);
-  border: 1px solid #8b5e3c;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-  border-radius: 8px;
-}
-
 /* ─── Headings ─── */
 .profile-name {
   font-size: 2rem;
-  color: #d2b48c;
+  color: #B8B6AE;
   margin-bottom: 2rem;
   text-align: center;
   border-bottom: 1px dotted #8b5e3c;
@@ -2371,469 +2292,7 @@ body.journal-archive {
   background-color:  #7a6f63; /* Lighter ashy brown */
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    border-right: none;
-    box-shadow: none;
-  }
 
-  .sidebar-book {
-    position: static;
-    margin: 20px auto;
-    display: block;
-    transform: none;
-  }
-
-  .site-header {
-    margin-left: 0;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  main {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  .welcome-box.ornate,
-  .book-announcement.ornate,
-  .author-card {
-    padding: 30px;
-    margin: 40px auto;
-    max-width: 95%;
-  }
-
-  .welcome-portrait {
-    position: static;
-    transform: none;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 90%;
-  }
-
-  .arch-container,
-  .banner-img {
-    max-width: 100%;
-  }
-
-  .profile-icon {
-    position: static;
-    margin: 10px auto;
-    display: block;
-  }
-}
-@media (max-width: 768px) {
-  .contact-box,
-  .profile-status,
-  .shelf-of-influence,
-  .timeline {
-    padding-left: 10px;
-    margin-bottom: 30px;
-  }
-
-  .inline-art {
-    width: 140px;
-    height: 140px;
-    margin: 10px auto;
-    display: block;
-  }
-
-  .author-portrait {
-    width: 140px;
-    height: 140px;
-  }
-
-  .site-footer {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  .book-image {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .framed-decorations {
-    gap: 20px;
-    padding: 10px;
-  }
-
-  .frame {
-    width: 100px;
-    height: 100px;
-    padding: 6px;
-  }
-
-  .aesthetic-grid {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
-    gap: 1.5rem;
-  }
-
-  .aesthetic-card {
-    height: auto;
-    min-height: 300px;
-    padding: 20px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .aesthetic-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .aesthetic-preview {
-    font-size: 1rem;
-  }
-
-  .aesthetic-tags {
-    font-size: 0.85rem;
-  }
-}
-@media (max-width: 768px) {
-  .aesthetic-post .aesthetic-card {
-    padding: 2rem 1rem;
-    align-items: center;
-  }
-
-  .aesthetic-post .card-overlay,
-  .card-overlay {
-    padding: 1.5rem;
-    max-width: 95%;
-  }
-
-  .card-overlay h2 {
-    font-size: 1.4rem;
-  }
-
-  .card-overlay .aesthetic-preview {
-    font-size: 1rem;
-  }
-
-  .blog-welcome {
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 95%;
-  }
-
-  .circular-frame,
-  .relic-frame {
-    width: 60px;
-    height: 60px;
-    margin: 8px;
-  }
-
-  .quote-block {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
-
-  .quote-text {
-    font-size: 1.2rem;
-  }
-
-  .search-form {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .search-form input[type="text"],
-  .search-form button {
-    width: 100%;
-  }
-
-  .auth-form,
-  .auth-box {
-    padding: 1.5rem;
-    max-width: 90%;
-  }
-
-  .auth-form h2,
-  .welcome-banner h2 {
-    font-size: 1.4rem;
-  }
-
-  .welcome-banner p,
-  .auth-note,
-  .form-options {
-    font-size: 0.85rem;
-  }
-
-  .profile-scroll {
-    padding: 1.5rem;
-    margin: 2rem auto;
-    width: 95%;
-  }
-
-  .profile-scroll h2 {
-    font-size: 1.6rem;
-  }
-
-  .profile-scroll h3 {
-    font-size: 1.1rem;
-  }
-
-  .threshold-image,
-  .divider,
-  .mirror-image {
-    max-width: 90%;
-  }
-}
-@media (max-width: 768px) {
-  .ambient-decor {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .relic-small { width: 60px; height: 60px; }
-  .relic-medium { width: 80px; height: 80px; }
-  .relic-large { width: 100px; height: 100px; }
-
-  .profile-signature {
-    margin-left: 0;
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  .form-scroll {
-    padding: 1.5rem;
-    margin: 2rem auto;
-    max-width: 95%;
-  }
-
-  .form-scroll h2 {
-    font-size: 1.6rem;
-  }
-
-  .form-scroll label {
-    font-size: 0.9rem;
-  }
-
-  .form-scroll input,
-  .form-scroll textarea {
-    font-size: 0.95rem;
-    padding: 0.75rem;
-  }
-
-  .form-scroll button {
-    font-size: 1rem;
-    padding: 0.85rem;
-  }
-
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-}
-@media (max-width: 768px) {
-  .journal-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-    max-width: 95%;
-  }
-
-  .journal-card {
-    height: auto;
-    min-height: 300px;
-    flex-direction: column;
-    padding: 1.5rem;
-  }
-
-  .journal-overlay {
-    padding: 2rem;
-    max-width: 95%;
-  }
-
-  .journal-overlay h2 {
-    font-size: 1.4rem;
-  }
-
-  .journal-theme {
-    font-size: 1rem;
-  }
-
-  .journal-tags {
-    font-size: 0.85rem;
-  }
-
-  .journal-empty {
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 95%;
-  }
-
-  .delete-button,
-  .logout-button,
-  .edit-button,
-  .revise-link-button,
-  .edit-profile-button {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .delete-button-container,
-  .logout-button-container,
-  .revise-link-wrapper,
-  .edit-profile-wrapper {
-    margin-top: 1.5rem;
-    padding: 0 1rem;
-  }
-}
-@media (max-width: 768px) {
-  .profile-scroll {
-    padding: 1.5rem;
-    margin: 2rem auto;
-    max-width: 95%;
-    font-size: 1.1rem;
-  }
-
-  .profile-scroll h2 {
-    font-size: 1.8rem;
-  }
-
-  .profile-scroll a {
-    font-size: 1.2rem;
-  }
-
-  .backdrop-wrapper {
-    height: 240px;
-    margin-bottom: -60px;
-  }
-
-  .profile-image-circular {
-    width: 160px;
-    height: 160px;
-    top: -80px;
-  }
-
-  .profile-quote {
-    font-size: 1.3rem;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .profile-name {
-    font-size: 2.2rem;
-  }
-
-  .profile-role {
-    font-size: 1rem;
-  }
-
-  .profile-section {
-    padding: 0.5rem 0;
-    margin: 1.5rem auto;
-  }
-
-  .section-heading {
-    font-size: 0.9rem;
-  }
-
-  .divider,
-  .divider-small,
-  .mirror-image {
-    max-width: 90%;
-  }
-
-  .ambient-decor {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    padding: 1rem;
-  }
-
-  .relic-small { width: 60px; height: 60px; }
-  .relic-medium { width: 80px; height: 80px; }
-  .relic-large { width: 100px; height: 100px; }
-
-  .profile-signature {
-    margin-left: 0;
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  form label {
-    font-size: 0.95rem;
-  }
-
-  form input,
-  form textarea,
-  form select {
-    font-size: 0.95rem;
-    padding: 0.6rem;
-  }
-
-  form button[type="submit"] {
-    font-size: 1rem;
-    padding: 0.7rem 1.2rem;
-  }
-}
-@media (max-width: 768px) {
-  .journal-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-    max-width: 95%;
-  }
-
-  .journal-card {
-    height: auto;
-    min-height: 300px;
-    flex-direction: column;
-    padding: 1.5rem;
-  }
-
-  .journal-overlay {
-    padding: 2rem;
-    max-width: 95%;
-  }
-
-  .journal-overlay h2 {
-    font-size: 1.4rem;
-  }
-
-  .journal-theme {
-    font-size: 1rem;
-  }
-
-  .journal-tags {
-    font-size: 0.85rem;
-  }
-
-  .journal-empty {
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 95%;
-  }
-
-  .delete-button,
-  .logout-button,
-  .edit-button,
-  .revise-link-button,
-  .edit-profile-button {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .delete-button-container,
-  .logout-button-container,
-  .revise-link-wrapper,
-  .edit-profile-wrapper {
-    margin-top: 1.5rem;
-    padding: 0 1rem;
-  }
-}
 
 /* ─── Reset Password Page ─── */
 .auth-reset {
@@ -2914,4 +2373,486 @@ body.journal-archive {
   color: #cbbf9d;
   font-style: italic;
 }
-8
+
+/* ─── Mobile Sidebar + Responsive Layout ─── */
+.sidebar-checkbox {
+  display: none;
+}
+
+.sidebar-toggle {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 768px) {
+  /* General layout reset */
+  body {
+    font-size: 0.5rem;
+    line-height: 1.4;
+  }
+
+  main {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .main-content {
+    all: unset;              /* wipes all styles */
+    display: block;          /* restores default block flow */
+    width: 95%;             /* full width */
+    margin: 0;               /* no extra spacing */
+    padding: 0;              /* no padding */
+  }
+
+}
+
+/* Mobile only: show image toggle */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    width: 20px;   /* small square size */
+    height: 20px;
+    cursor: pointer;
+    z-index: 1000; /* above header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  /* Hover effects */
+  .sidebar-toggle img:hover {
+    transform: scale(1.1);              /* slight enlargement */
+    filter: drop-shadow(0 0 6px #fff);  /* glowing white aura */
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Header */
+  .site-header {
+    margin-left: 0 !important;     /* remove desktop offset */
+    padding: 12px 16px !important; /* tighter spacing */
+    flex-direction: column;        /* stack logo + title */
+    align-items: flex-start;       /* align left, not perfectly centered */
+    text-align: left;              /* keep text aligned left */
+    background-color: #0f0f0f;
+    border-bottom: 2px solid #5a5144;
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  }
+
+  .site-logo {
+    max-width: 60px;               /* smaller logo */
+    height: auto;
+    margin-bottom: 6px;
+  }
+
+  .site-header h1 {
+    font-size: 1.0rem;             /* compact title */
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .site-header h2 {
+    font-size: 0.7rem;             /* compact subtitle */
+    margin: 4px 0 0;
+    line-height: 1.2;
+  }
+
+  /* Footer */
+  .site-footer {
+    margin-left: 0 !important;
+    padding: 10px 16px !important; /* smaller padding */
+    font-size: 0.75rem;            /* compact text */
+    text-align: left;              /* align left, not centered */
+    border-top: 2px solid #5a5144;
+    background-color: #0f0f0f;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
+  }
+
+
+  /* Sidebar hidden by default */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: #0f0f0f;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-portrait {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0a0a0a;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    border-radius: 24px;
+    width: 60%;
+    max-width: 500px;
+    text-align: center;
+    font-size:0.57rem;
+} 
+   
+
+   
+    
+   .sidebar {
+    font-size: 1rem;       /* bigger text */
+    line-height: 1.5;      /* comfortable spacing */
+    color: #e5d9c5;        /* cream text for readability */
+  }
+
+  .sidebar a {
+    font-size: 1.1rem;     /* slightly larger for links */
+    display: block;
+    margin: 8px 0;
+    text-decoration: none;
+    color: #e5d9c5;
+  }
+}
+
+  
+
+  /* Arch + welcome box */
+  .arch-container {
+    position: relative;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+@media (max-width: 768px) {
+  .author-page {
+    padding: 15px;
+  }
+
+  .motto {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .motto img.quill-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .motto h2 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .author-card {
+    background-color: #111;       /* dark academia tone */
+    border: 1px solid #e5d9c5;    /* cream border */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 95%;               /* fits mobile screen */
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    text-align: center;
+  }
+
+  .author-card h1 {
+    font-size: 1.4rem;
+    margin: 15px 0;
+  }
+
+  .author-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .author-portrait {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #e5d9c5;
+    margin-bottom: 15px;
+  }
+
+  .contact-box {
+    background: #222;
+    border: 1px solid #e5d9c5;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  .contact-box .email {
+    font-weight: bold;
+    color: #e5d9c5;
+    margin-top: 8px;
+  }
+
+  .author-decor img.inline-art {
+    width: 100%;
+    max-width: 80px;
+    margin-top: 20px;
+    border: 2px solid #e5d9c5;
+  }
+}
+@media (max-width: 768px) {
+  .book-page {
+    padding: 15px;
+  }
+
+  .motto {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .motto img.quill-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .motto h2 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .book-announcement {
+    background-color: #111;       /* dark academia tone */
+    border: 1px solid #e5d9c5;    /* cream border */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 95%;               /* fits mobile screen */
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    text-align: center;
+  }
+
+  .book-announcement h1 {
+    font-size: 1.4rem;
+    margin: 15px 0;
+  }
+
+  .book-announcement p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .book-announcement .tagline {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .book-image {
+    width: 100%;
+    max-width: 280px;
+    margin: 15px auto;
+    display: block;
+    border: 2px solid #e5d9c5;
+    border-radius: 6px;
+  }
+
+  .pinterest-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #e5d9c5;
+    text-decoration: underline;
+  }
+
+  blockquote {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 20px auto;
+    color: #e5d9c5;
+  }
+
+  .contact-box {
+    background: #222;
+    border: 1px solid #e5d9c5;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  .contact-box .email {
+    font-weight: bold;
+    color: #e5d9c5;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+.quote-list {
+  margin-top: 20px;
+}
+
+.quote-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 3px solid #e5d9c5; /* decorative cream accent */
+}
+
+.quote-text {
+  font-size: 1.09rem;   /* slightly smaller than default */
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.quote-meta {
+  font-size: 0.8rem;   /* smaller meta text */
+  color: #aaa;
+}
+
+.quote-genre {
+  font-style: italic;
+  font-size: 0.75rem;
+}
+}
+
+@media (max-width: 768px) {
+  .intro-ornate {
+        font-size: 0.7rem;
+        line-height: 1.4;
+  }
+
+  /* Frames: smaller circles */
+  .frame {
+    width: 100px;           /* smaller than desktop 140px */
+    height: 100px;
+    padding: 6px;           /* reduced padding */
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-scroll {
+    width: 100%;          /* full width */
+    max-width: none;      /* remove artificial cap */
+    margin: 2rem auto;    /* centered */
+    padding: 1.5rem;      /* balanced padding */
+    font-size: 1.1rem;    /* slightly larger text */
+    line-height: 1.6;     /* keep airy rhythm */
+  }
+
+  .profile-scroll a {
+    font-size: 1.1rem;       /* scale down link text */
+  }
+  
+}
+
+
+@media (max-width: 768px) {
+  /* Profile image: smaller, centered */
+  .profile-image-circular {
+    width: 140px;
+    height: 140px;
+    top: -60px;              /* less overlap on mobile */
+    border: 3px solid #cbb279;
+  }
+
+  /* Threshold quote: scale down */
+  .profile-quote {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Identity layer: smaller headings */
+  .profile-name {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .profile-role {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Section styling: narrower */
+  .profile-section {
+    margin: 1.5rem auto;
+    max-width: 95%;
+    padding: 0.5rem 0;
+  }
+  
+  .profile-image-circular {
+  display: block;
+  margin: 0 auto;
+ }
+
+  .section-heading {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Mirror motif: shrink image */
+  .mirror-image {
+    max-width: 220px;
+    margin: 1.5rem auto;
+  }
+  .mirror-caption {
+    font-size: 0.85rem;
+  }
+
+  /* Ambient relics: fewer columns, smaller frames */
+  .ambient-decor {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    gap: 0.5rem;
+    padding: 1rem;
+    max-width: 100%;
+  }
+  .relic-small { width: 60px; height: 60px; }
+  .relic-medium { width: 80px; height: 80px; }
+  .relic-large { width: 100px; height: 100px; }
+
+  /* Signature line: center on mobile */
+  .profile-signature {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .profile-signature blockquote {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+body.aesthetic-post {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #cccccc;
+    font-family: 'Georgia', serif;
+    font-size: 0.58rem;
+    line-height: 1.8;
+    }
+}
+@media (max-width: 768px) {
+.journal-overlay {
+    background: rgba(15, 15, 15, 0.85);
+    border: 2px solid #444;
+    padding: 3rem;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 60%;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    color: #ccc;
+    text-align: center;
+  }
+}
