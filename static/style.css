@@ -2394,7 +2394,7 @@ body.journal-archive {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0 1rem !important;
-    width: 100% !important;
+    width: 100%;
     box-sizing: border-box;
   }
   
@@ -2405,6 +2405,11 @@ body.journal-archive {
     margin: 0;               /* no extra spacing */
     padding: 0;              /* no padding */
   }
+
+  label {
+    font-size: 0.89rem;
+    cursor: default;
+ }
 
 }
 
