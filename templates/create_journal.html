@@ -6,7 +6,6 @@
   <title>Create Reading Journal</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <style>
-
     .journal-box h2 {
       font-size: 2rem;
       color: #d2b48c;
@@ -84,6 +83,15 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+    .main-content {
+        all: unset;
+        display: block;
+        width: 95%;
+        margin: 0;
+        padding: 0;
+    }
+}
 .journal-box {
   width: 100%;
   max-width: 900px;
@@ -95,6 +103,69 @@
   box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
+@media (max-width: 768px) {
+  .journal-box {
+    width: 300px;
+    max-width: 95%;       /* shrink to fit phone width */
+    padding: 1.25rem;     /* lighter padding for small screens */
+    margin: 1rem auto;    /* centered with breathing space */
+    font-size: 0.95rem;   /* slightly smaller text for readability */
+  }
+
+  form input[type="text"], form input[type="date"], form textarea, form select {
+    width: 90%;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    background-color: #2c2823;
+    color: #dcd8d2;
+    border: 1px solid #8b5e3c;
+    border-radius: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+}
+}
+    /* Hide checkbox */
+    .sidebar-checkbox { display: none; }
+
+    /* Toggle hidden on desktop */
+    .sidebar-toggle { display: none; }
+
+    /* Mobile only */
+    @media (max-width: 768px) {
+      .sidebar-toggle {
+        position: fixed;
+        top: 10px; left: 15px;
+        width: 25px; height: 25px;
+        cursor: pointer;
+        z-index: 5000; /* above header */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sidebar-toggle img {
+        width: 100%; height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      .sidebar-toggle img:hover {
+        transform: scale(1.1);
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0; left: -100%;
+        width: 60%; height: 100%;
+        background: #111;
+        transition: left 0.3s ease;
+        z-index: 4000;
+        padding: 20px;
+        font-size: 1rem;
+        color: #fff;
+      }
+      .sidebar-checkbox:checked ~ .sidebar {
+        left: 0;
+      }
+    }
   </style>
 </head>
 <body class="create-journal-page">
@@ -114,6 +185,12 @@
   </div>
 </header>
 
+<!-- ✅ Toggle markup moved here -->
+<input type="checkbox" id="sidebar-toggle-checkbox" class="sidebar-checkbox">
+<label for="sidebar-toggle-checkbox" class="sidebar-toggle">
+  <img src="{{ url_for('static', filename='toggle-icon.png') }}" alt="Menu">
+</label>
+
 <aside class="sidebar">
   <h2>Ravens & Quill</h2>
   <nav>
@@ -129,6 +206,7 @@
     <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
   </div>
 </aside>
+
 
 <div class="main-content">
 <div class="journal-box">
@@ -197,7 +275,7 @@
 
     <button type="submit">Seal the Journal</button>
   </form>
-</div>
+  </div>
 </div>
 
 <footer class="site-footer">
