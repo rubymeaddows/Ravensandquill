@@ -6,39 +6,83 @@
     <title>Verification Complete</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            background: url("{{ url_for('static', filename='parchment-bg.png') }}") repeat;
-            color: #2c2c2c;
-            text-align: center;
-            padding: 4rem;
-        }
-        .sanctuary {
-            max-width: 600px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.85);
-            border: 2px solid #3a2f2f;
-            padding: 2rem;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-        }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #3a2f2f;
-            padding-bottom: 0.5rem;
-        }
-        p {
-            margin: 1rem 0;
-            line-height: 1.6;
-        }
-        a {
-            color: #3a2f2f;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #0F0F10; /* ashen black */
+    color: #C5C2BB; /* bone ink */
+    text-align: center;
+    padding: 4rem;
+    background-attachment: fixed;
+}
+
+/* Sanctuary container */
+.sanctuary {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(26, 20, 18, 0.92); /* smoked espresso overlay */
+    border: 2px solid #3a2f2f;
+    padding: 2.5rem;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+    border-radius: 8px;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid #5A5B5D;
+    padding-bottom: 0.6rem;
+    color: #EAE6DA; /* parchment highlight */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Paragraphs */
+p {
+    margin: 1.2rem 0;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    color: #C5C2BB;
+}
+
+/* Links */
+a {
+    color: #776B61;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+a:hover {
+    color: #EAE6DA;
+    text-shadow: 0 0 8px rgba(234, 230, 218, 0.7);
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #5A5B5D;
+    margin: 2rem 0;
+}
+
+/* Media query for phones */
+@media (max-width: 600px) {
+    body {
+        padding: 2rem;
+    }
+    .sanctuary {
+        padding: 1.5rem;
+        max-width: 95%;
+        box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
     </style>
 </head>
 <body>
