@@ -5,42 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ journal.title }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header class="site-header">
-  <div class="logo-title">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
-    <div class="site-text">
-      <h1 class="site-heading">Ravens & Quill</h1>
-      <p class="site-motto">Legere est credere</p>
-    </div>
-  </div>
-  <div class="profile-icon">
-    <a href="/profile">
-      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
-    </a>
-  </div>
-</header>
-
-<!-- Sidebar Navigation -->
-<aside class="sidebar">
-  <h2>Ravens & Quill</h2>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/profile">Profile</a>
-    <a href="/author">Author</a>
-    <a href="/silence">If The Silence Fell</a>
-    <a href="/quotes">Quote Library</a>
-    <a href="/aesthetics">Various Aesthetics</a>
-    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
-  </nav>
-  <div class="sidebar-book">
-    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
-  </div>
-</aside>
-
   <style>
-    body {
+    /* Hide checkbox */
+    .sidebar-checkbox { display: none; }
+    .sidebar-toggle { display: none; }
+
+    /* Mobile only */
+    @media (max-width: 768px) {
+      .sidebar-toggle {
+        position: fixed;
+        top: 10px; left: 15px;
+        width: 25px; height: 25px;
+        cursor: pointer;
+        z-index: 5000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sidebar-toggle img {
+        width: 100%; height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      .sidebar-toggle img:hover {
+        transform: scale(1.1);
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0; left: -100%;
+        width: 60%; height: 100%;
+        background: #111;
+        transition: left 0.3s ease;
+        z-index: 4000;
+        padding: 20px;
+        font-size: 1rem;
+        color: #fff;
+      }
+      .sidebar-checkbox:checked ~ .sidebar {
+        left: 0;
+      }
+
+    }
+
+     body {
       margin: 0;
       padding: 0;
       background-image: url('{{ url_for("static", filename="journal-bg.png") }}');
@@ -59,8 +67,7 @@
       border-radius: 8px;
       box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
-
-    .journal-box h2 {
+     .journal-box h2 {
       font-size: 2rem;
       color: #d2b48c;
       text-align: center;
@@ -75,6 +82,16 @@
       line-height: 1.6;
     }
 
+/* Mobile overrides */
+@media (max-width: 768px) {
+  .journal-box {
+    max-width: 280px;
+    width: 95%;
+    margin: 1rem auto;
+    padding: 1.25rem;
+    font-size: 0.95rem;
+  }
+}  
     .cover-thumbnail {
       display: block;
       max-width: 200px;
@@ -106,15 +123,53 @@
       border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      transition:s background-color 0.3s ease;
     }
 
     .add-button:hover {
       background-color: #a67c52;
     }
+    /* … keep your other journal-box styles here … */
   </style>
 </head>
 <body>
+
+<input type="checkbox" id="sidebar-toggle-checkbox" class="sidebar-checkbox">
+<label for="sidebar-toggle-checkbox" class="sidebar-toggle">
+  <img src="{{ url_for('static', filename='toggle-icon.png') }}" alt="Menu">
+</label>
+
+<header class="site-header">
+  <div class="logo-title">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <div class="site-text">
+      <h1 class="site-heading">Ravens & Quill</h1>
+      <p class="site-motto">Legere est credere</p>
+    </div>
+  </div>
+  <div class="profile-icon">
+    <a href="/profile">
+      <img src="{{ url_for('static', filename='profile_icon.png') }}" alt="Profile Icon">
+    </a>
+  </div>
+</header>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar">
+  <h2>Ravens & Quill</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/author">Author</a>
+    <a href="/silence">If The Silence Fell</a>
+    <a href="/quotes">Quote Library</a>
+    <a href="/aesthetics">Various Aesthetics</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+  </nav>
+  <div class="sidebar-book">
+    <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
+  </div>
+</aside>
 
 <div class="journal-box">
   <h2>{{ journal.title }}</h2>
@@ -176,6 +231,10 @@
 <a href="{{ url_for('create_reading_journal') }}">Add Journal</a>
 
 </div>
+
+<footer class="site-footer">
+  <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
+</footer>
 
 </body>
 </html>
