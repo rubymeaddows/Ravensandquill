@@ -113,10 +113,12 @@ def signup():
         # Generate verification token and hash password
         token = secrets.token_urlsafe(32)
         hashed = generate_password_hash(password)
+
+        # ─── Store user in Firestore ───
         doc_ref.set({
             'email': email,
             'password_hash': hashed,
-            'joined': datetime.now().strftime('%B %d, %Y'),
+            'joined': datetime.now().strftime('%B %d, %Y'),  # ← here
             'verified': False,
             'verify_token': token
         })
@@ -141,6 +143,7 @@ If you did not sign up, you can safely ignore this message.
     return render_template('signup.html')
 
 
+
 # ─── Verify Email ───
 @app.route('/verify')
 def verify():
@@ -158,6 +161,7 @@ def verify():
 
     flash("Invalid or expired verification link.")
     return redirect(url_for('signup'))
+
 
 # ─── Login ───
 @app.route('/login', methods=['GET', 'POST'])
@@ -285,7 +289,14 @@ def load_all_quotes():
 @app.route('/quotes', methods=['GET', 'POST'])
 def quotes():
     all_quotes = load_all_quotes()
-    filtered = all_quotes[:20]
+    page = request.args.get('page', default=1, type=int)
+    per_page = 20
+
+    # Default slice
+    start = (page - 1) * per_page
+    end = start + per_page
+    filtered = all_quotes[start:end]
+
     if request.method == 'POST':
         author = request.form.get('author', '').lower()
         genre = request.form.get('genre', '').lower()
@@ -293,7 +304,19 @@ def quotes():
             q for q in all_quotes
             if (author in q['author'].lower()) and (genre in q['genre'].lower())
         ]
-    return render_template('quotes.html', quotes=filtered)
+        # When searching, you may want to show all results or paginate separately
+        has_more = False
+    else:
+        # Instead of slicing by page, pick 20 random quotes
+        filtered = random.sample(all_quotes, min(per_page, len(all_quotes)))
+        has_more = False  # no pagination when randomizing
+
+    return render_template(
+        'quotes.html',
+        quotes=filtered,
+        page=page,
+        has_more=has_more
+    )
 
 # ─── Aesthetics ───
 def load_blogs():
@@ -500,5 +523,3 @@ def edit_profile():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
-
-
