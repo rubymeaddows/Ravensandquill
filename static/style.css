@@ -2856,3 +2856,44 @@ body.aesthetic-post {
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+
+.card-overlay {
+    background: rgba(15, 15, 15, 0.75);
+    border: 2px solid #444;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 70%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+.blog-welcome {
+    background-color: rgba(15, 15, 15, 0.95);
+    padding: 4rem;
+    margin: 4rem auto;
+    max-width: 1000px;
+    border: 2px solid #444;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    color: #ccc;
+    font-family: 'Georgia', serif; 
+    font-size: 0.76rem;
+    line-height: 1.8;
+  }
+
+.card-overlay h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: #d2b48c;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+.card-overlay .aesthetic-tags {
+    font-size: 0.90rem;
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+}
