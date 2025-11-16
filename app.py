@@ -8,6 +8,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Mail, Message
+import random
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'Varya-Riddle1043'
@@ -521,3 +522,4 @@ def edit_profile():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
+
