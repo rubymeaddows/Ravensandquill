@@ -8,10 +8,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
 </head>
 <body>
-<body class="profile-page">
+<style>
+
+/* Hide checkbox */
+.sidebar-checkbox { display: none; }
+
+/* Toggle hidden on desktop */
+.sidebar-toggle { display: none; }
+
+/* Mobile only */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    position: fixed;
+    top: 10px; left: 15px;
+    width: 25px; height: 25px;
+    cursor: pointer;
+    z-index: 5000; /* above header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sidebar-toggle img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .sidebar-toggle img:hover {
+    transform: scale(1.1);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: #111;
+    transition: left 0.3s ease;
+    z-index: 4000;
+    padding: 20px;
+    font-size: 1rem;
+    color: #fff;
+  }
+  .sidebar-checkbox:checked ~ .sidebar {
+    left: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="sidebar-toggle-checkbox" class="sidebar-checkbox">
+<label for="sidebar-toggle-checkbox" class="sidebar-toggle">
+  <img src="static/toggle-icon.png" alt="Menu">
+</label>
+
+
 <header class="site-header">
   <div class="logo-title">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Site Crest" class="site-logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Profile" class="site-logo">
     <div class="site-text">
       <h1 class="site-heading">Ravens & Quill</h1>
       <p class="site-motto">Legere est credere</p>
@@ -24,25 +77,25 @@
   </div>
 </header>
 
-<!-- Sidebar Navigation -->
 <aside class="sidebar">
   <h2>Ravens & Quill</h2>
   <nav>
     <a href="/">Home</a>
+     {% if session.email %}
     <a href="/profile">Profile</a>
+  {% else %}
+    <a href="/login">Login</a>
+  {% endif %}
     <a href="/author">Author</a>
     <a href="/silence">If The Silence Fell</a>
     <a href="/quotes">Quote Library</a>
     <a href="/aesthetics">Various Aesthetics</a>
-     <a href="{{ url_for('all_journals') }}">Reading Journal</a>
+    <a href="{{ url_for('all_journals') }}">Reading Journal</a>
   </nav>
   <div class="sidebar-book">
     <img src="{{ url_for('static', filename='book1.png') }}" alt="Book" class="book-icon">
   </div>
 </aside>
-
-<body class="profile-page parchment-bg">
-
 <div class="main-content">
   <main class="profile-scroll">
 
@@ -152,12 +205,10 @@
         </div>
       </div>
     </div>
-
   </main>
 </div>
 <footer class="site-footer">
   <img src="{{ url_for('static', filename='raven.png') }}" alt="Raven Emblem" class="footer-icon">
 </footer>
-
 </body>
 </html>
