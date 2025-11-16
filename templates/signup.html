@@ -7,6 +7,34 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+<style>
+@media (max-width: 768px) {
+
+.auth-box {
+    background-color: rgba(15, 10, 5, 0.88);
+    border: 2px solid #5a4533;
+    border-radius: 12px;
+    padding: 2.5rem;
+    max-width: 460px;
+    width: 97%;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    font-family: 'Cormorant Garamond', serif;
+    color: #f0e8dc;
+}
+form input[type="text"], form input[type="date"], form textarea, form select {
+    width: 80%;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    background-color: #2c2823;
+    color: #dcd8d2;
+    border: 1px solid #8b5e3c;
+    border-radius: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+  }
+}
+</style>
 <header class="site-header">
   <div class="logo-title">
     <a href="/signup">
