@@ -6,6 +6,40 @@
   <title>Reset Password – Ravens & Quill</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+<style>
+@media (max-width: 768px) {
+.auth-reset-box input[type="password"] {
+    width: 90%;
+    padding: 0.8rem;
+    border: 1px solid #5a4632;
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+    background: #2a2a2a;
+    color: #e6e0d4;
+  }
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    font-size: 0.8rem;
+ }
+
+h3 {
+    display: block;
+    font-size: 1.8em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+ }
+}
+</style>
 <body class="auth-reset">
   <main class="auth-reset-box">
     {% with messages = get_flashed_messages() %}
