@@ -34,6 +34,7 @@ db = firestore.client()
 s = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 
+
 @app.route('/forgot', methods=['GET', 'POST'])
 def forgot():
     if request.method == 'POST':
@@ -516,9 +517,6 @@ def edit_profile():
         return redirect(url_for('profile'))
 
     return render_template('edit_profile.html', user=user_data)
-
-
-
 
 
 if __name__ == '__main__':
