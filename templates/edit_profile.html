@@ -35,12 +35,31 @@
       padding-bottom: 0.5rem;
     }
 
+ @media (max-width: 768px) {
+.profile-box {
+    max-width: 280px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: rgba(38, 34, 28, 0.7);
+    border: 1px solid #8b5e3c;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+}
+
     form label {
       display: block;
       margin-top: 1.5rem;
       font-weight: bold;
       color: #c8bfb2;
     }
+
+    @media (max-width: 768px) {
+    form label {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+   }
 
     form input[type="text"],
     form input[type="date"],
