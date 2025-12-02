@@ -7,8 +7,8 @@ import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 from itsdangerous import URLSafeTimedSerializer
-from flask_mail import Mail, Message
 import random
+from flask_mail import Mail, Message
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'Varya-Riddle1043'
@@ -22,6 +22,9 @@ app.config['MAIL_USERNAME'] = os.environ['MAIL_USERNAME']
 app.config['MAIL_PASSWORD'] = os.environ['MAIL_PASSWORD']
 app.config['MAIL_DEFAULT_SENDER'] = ('Ravens & Quill', os.environ['MAIL_USERNAME'])
 
+# Initialize Flask-Mail
+mail = Mail(app)
+
 # ─── Firebase Admin Configuration ───
 cred_dict = json.loads(os.environ['FIREBASE_CREDENTIALS'])
 cred = credentials.Certificate(cred_dict)
@@ -32,9 +35,7 @@ if not firebase_admin._apps:
 db = firestore.client()
 
 # Token generator setup
-s = URLSafeTimedSerializer(app.config['SECRET_KEY'])
-
-
+s = URLSafeTimedSerializer(app.secret_key)
 
 @app.route('/forgot', methods=['GET', 'POST'])
 def forgot():
@@ -524,3 +525,4 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Render sets PORT
     app.run(host="0.0.0.0", port=port, debug=True)
     
+
